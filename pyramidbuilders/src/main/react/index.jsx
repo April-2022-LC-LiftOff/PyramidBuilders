@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import '../css/main.css';
 
 //main React app.
 class Main extends Component {
