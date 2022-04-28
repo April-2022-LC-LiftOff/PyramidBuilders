@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 
+//main React app.
 class Main extends Component {
     render() {
         return (
