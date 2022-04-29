@@ -26,6 +26,8 @@ tasks.named('test') {
 
 node {
 	version = '16.13.0'
+	npmVersion = '8.1.0'
+	download = true
 }
 
 task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
