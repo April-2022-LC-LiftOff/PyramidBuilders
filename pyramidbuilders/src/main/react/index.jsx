@@ -7,8 +7,8 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <h1>Demo Component</h1>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"/>
+                <h1>Hello World!</h1>
+
             </div>
         );
     }
