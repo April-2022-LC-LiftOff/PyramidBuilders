@@ -1,4 +1,4 @@
-package controllers;
+package org.launchcode.backend.controllers;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;
