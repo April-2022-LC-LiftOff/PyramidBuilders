@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '0',
     margin:'1%',
     marginLeft: '15%',
-    color:'rgb(0, 0, 0, 60%)',
+    color:'rgb(0, 0, 0, 70%)',
     textAlign: 'center',
   }
 }));
