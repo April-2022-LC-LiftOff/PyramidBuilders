@@ -1,0 +1,3 @@
+##prevents all the little node changes from clogging up github's change feature
+node_modules
+node_modules
