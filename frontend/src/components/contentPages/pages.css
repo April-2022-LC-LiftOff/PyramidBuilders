@@ -61,3 +61,31 @@
 	color: rgb(0 0 0 70%);
 	text-align: center;
 }
+
+
+.container {
+	display: flex;
+	height: 300px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.item {
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	background: #FAEBD7;
+}
+
+#title {
+	font-weight: bold;
+	margin: 5px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+#body {
+	margin: 5px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
