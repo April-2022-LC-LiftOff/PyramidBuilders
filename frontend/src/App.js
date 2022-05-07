@@ -9,11 +9,12 @@ import Review from './components/contentPages/Review';
 import './App.css';
 
 
+
 function App() {
   return (
     <div className='app'>
     <Router>
-      <Topbar />
+      <Topbar sticky="top" />
       <div className='app-container'>
         <Sidebar />
         <div className='page-container'>
