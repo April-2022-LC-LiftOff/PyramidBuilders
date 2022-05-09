@@ -120,3 +120,24 @@
 	padding: 10px;
 	place-items: center;
 }
+
+.reviewStyling {
+	
+}
+
+.selectMovie {
+	padding: 10px;
+}
+
+.selectLabel {
+	padding: 3px;
+}
+
+.writeReview {
+	padding: 10px;
+}
+
+.submitReview {
+	padding: 5px;
+	margin: 10px;
+}
