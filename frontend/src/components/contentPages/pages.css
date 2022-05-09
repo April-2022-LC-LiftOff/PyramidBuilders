@@ -122,7 +122,9 @@
 }
 
 .reviewStyling {
-	
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	padding: 10px;
 }
 
 .selectMovie {
@@ -130,14 +132,27 @@
 }
 
 .selectLabel {
-	padding: 3px;
+	margin-right: 16px;
+}
+
+.reviewButtons {
+	padding: 10px;
 }
 
 .writeReview {
 	padding: 10px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
+
+textarea {
+	width: 300px;
+	height: 150px;
+  }
 
 .submitReview {
 	padding: 5px;
 	margin: 10px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
