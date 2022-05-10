@@ -14,8 +14,8 @@ import java.io.IOException;
 @Configuration
 public class FirebaseAuthConfig {
 
-    @Value("classpath:serviceAccountKey.json")
-    Resource serviceAccount;
+    @Value(value ="classpath:serviceAccountKey.json")
+     Resource serviceAccount;
 
     @Bean
     FirebaseAuth firebaseAuth() throws IOException {
