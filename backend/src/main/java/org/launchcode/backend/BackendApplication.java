@@ -13,23 +13,9 @@ import java.util.Objects;
 @SpringBootApplication
 public class BackendApplication {
 
-	public static void main(String[] args) {
-//		Firebase connection
-
-//		ClassLoader classLoader = BackendApplication.class.getClassLoader();
+    public static void main(String[] args) {
 //
-//		File file =  new File(Objects.requireNonNull(classLoader.getResource("serviceAccountKey.json")).getFile());
-//
-//		FileInputStream serviceAccount =
-//				new FileInputStream(file.getAbsolutePath());
-//
-//		FirebaseOptions options = new FirebaseOptions.Builder()
-//				.setCredentials(GoogleCredentials.fromStream(serviceAccount))
-//				.build();
-//
-//		FirebaseApp.initializeApp(options);
-
-		SpringApplication.run(BackendApplication.class, args);
-	}
+        SpringApplication.run(BackendApplication.class, args);
+    }
 
 }
