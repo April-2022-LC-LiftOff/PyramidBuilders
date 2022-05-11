@@ -6,7 +6,9 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import org.launchcode.backend.model.User;
 import org.launchcode.backend.model.data.UserTempDatabase;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,17 +27,6 @@ import java.util.Map;
 @RequestMapping("/api/user")
 public class UserController {
 
-//    @PostMapping("/register")
-//    public ResponseEntity<?> registerUser (@RequestBody User user){
-//
-//
-//        int id = user.getId();
-//        Map<String,String> map = Collections.singletonMap("id", Integer.toString(id));
-//
-//        return new ResponseEntity<>(map, HttpStatus.CREATED) ;
-//
-//    }
-
     PasswordEncoder encoder = new BCryptPasswordEncoder();
     @PostMapping("/register")
     public ResponseEntity<?> registerUser (@RequestBody User user) throws FirebaseAuthException {
@@ -47,25 +38,14 @@ public class UserController {
                 .setDisabled(false);
 
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(register);
+        String customToken = FirebaseAuth.getInstance().createCustomToken(userRecord.getUid());
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer "+ customToken);
 
-
-        return new ResponseEntity<>( HttpStatus.CREATED);
+        ResponseEntity responseEntity = new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return responseEntity;
 
     }
 
-//    @PostMapping("/test")
-//    public HttpResponse<?> getSessionJWT (User user) {
-//        String query = "{\"email\": \"" + user.getEmail() +  "\"" +
-//                "\"password\": \"" + user.getPassword() + "\"," +
-//                "\"returnSecureToken\": true}";
-//
-//        HttpClient client = HttpClient.newHttpClient();
-//
-//        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=API_KEY")).POST(HttpRequest.BodyPublishers.ofString(query)).build();
-//
-//       return (HttpResponse<?>) HttpClient.newHttpClient().sendAsync(request, HttpResponse.BodyHandlers.ofString())
-//               .thenApply(HttpResponse::statusCode)
-//               .thenAccept(System.out::println);
-//
-//    }
+
 }
