@@ -11,10 +11,12 @@ import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 
+import static java.lang.System.getenv;
+
 @Configuration
 public class FirebaseAuthConfig {
 
-    @Value(value ="classpath:serviceAccountKey.json")
+     @Value(value ="classpath:serviceAccountKey.json")
      Resource serviceAccount;
 
     @Bean
