@@ -1,0 +1,123 @@
+/* Fonts
+
+font-family: 'Bungee Outline', cursive;
+
+font-family: 'Limelight', cursive;
+
+font-family: 'Sonsie One', cursive; */
+/* FONTS */
+
+@font-face {
+    font-family: 'bukhari_scriptregular';
+    src: url('/Fonts/bukhari_script-webfont.woff2') format('woff2'),
+         url('/Fonts/bukhari_script-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* GENERIC */
+body {
+    background-color: #FFB085;
+    font-family:'Montserrat', sans-serif;
+}
+h1{
+    color: rgb(254, 241, 230);
+    font-family: 'bukhari_scriptregular';
+    text-shadow:2px 2px #90AACB;
+}
+
+h2{
+    color: FF865E;
+}
+h3{
+    color: #90AACB;
+}
+/* .site-icon{
+    border-radius: 50%;
+    max-width: 500px;
+} */
+.navbar-dark .nav-item .nav-link {
+    color: rgb(0, 0, 0);
+  }
+  
+  .navbar-dark .nav-item .nav-link:hover {
+    background-color: rgba(254, 241, 230, 0.7);
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+    color: #fff;
+  }
+  
+  .fa-li {
+    position: relative;
+    left: 0;
+  }
+  .tiny-icon {
+      max-height: 25px;
+  }
+  /* LOG IN PAGE */
+  .divider:after,
+  .divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+  }
+  .h-custom {
+  height: calc(100% - 73px);
+  }
+  @media (max-width: 450px) {
+  .h-custom {
+  height: 100%;
+  }
+  }
+/* SIGN UP */
+.btn {
+    background-color: #90AACB;
+    border: none;
+}
+.btn:hover{
+    background-color: rgb(184, 169, 207);
+}
+.modal-header{
+    background-color:#FFB085;
+}
+.modal-content{
+    background-color:#FFB085;
+    color:#eee;
+}
+#email{
+    width: 400px;
+}
+#username{
+
+width: 400px;
+}
+#password{
+    width: 400px;
+}
+#newpassword
+{
+    width: 400px;
+    margin-bottom: 25px;
+}
+
+input{
+    border:white;
+    
+}
+.modal-title{
+    text-align: center;
+}
+.title{
+    padding: 5px;
+}
+.together{
+    padding: 10px;
+}
+/* FOOTER */
+.sect{
+    background-color: #eee;
+}
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css')
+
