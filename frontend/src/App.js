@@ -8,8 +8,6 @@ import Filter from './components/contentPages/Filter';
 import Review from './components/contentPages/Review';
 import './App.css';
 
-
-
 function App() {
   return (
     <div className='app'>
