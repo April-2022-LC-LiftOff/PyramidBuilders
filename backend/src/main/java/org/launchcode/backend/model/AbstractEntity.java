@@ -3,6 +3,7 @@ package org.launchcode.backend.model;
 
 public abstract class AbstractEntity {
 
+
     private int id;
 
     public int getId() {

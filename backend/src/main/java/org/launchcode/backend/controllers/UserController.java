@@ -13,6 +13,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
+import org.launchcode.backend.model.LoginForm;
 import org.launchcode.backend.model.User;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,25 @@ public class UserController {
     private static final HttpTransport transport = Utils.getDefaultTransport();
 
 
-    PasswordEncoder encoder = new BCryptPasswordEncoder();
+    private static final PasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser (@RequestBody LoginForm login) throws FirebaseAuthException, IOException {
+
+        String email = login.getEmail();
+        String pwHash = login.getPassword();
+
+            //User signs in
+            String idToken= signInWithPassword(email, pwHash);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer "+ idToken);
+            ResponseEntity responseEntity = new ResponseEntity<>(headers, HttpStatus.OK);
+            return responseEntity;
+
+
+
+    }
 
 
 
@@ -47,7 +66,7 @@ public class UserController {
     public ResponseEntity<?> registerUser (@RequestBody User user) throws FirebaseAuthException, IOException {
         String username = user.getUsername();
         String email = user.getEmail();
-        String pwHash = encoder.encode(user.getPassword());
+        String pwHash = user.getPassword();
         //Creates UserRecord object unique to Firebase's built in User Database
         UserRecord.CreateRequest register = new UserRecord.CreateRequest()
                 .setEmail(email)
