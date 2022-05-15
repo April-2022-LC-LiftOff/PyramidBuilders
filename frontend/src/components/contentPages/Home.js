@@ -4,6 +4,7 @@ import React, { Component, useState } from "react";
 // import * as FaIcons from 'react-icons/fa';
 // import Form from 'react-bootstrap/Form';
 import './pages.css';
+import '../SearchFunctions/SearchMovies.css';
 
 import CardList from "../SearchFunctions/CardList";
 import SearchBar from "../SearchFunctions/SearchBar";
@@ -32,7 +33,7 @@ function Home(props) {
 			<SearchBar className="searchInput" onSearch={onSearch}/>
 			
 			<div>
-			<CardList colCount={2} md={6} className="item" results={state.results}/>
+			<CardList className="item" results={state.results}/>
 			</div>
 
 		  </div>

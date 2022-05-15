@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import Home from './components/contentPages/Home';
