@@ -25,26 +25,20 @@ function Home(props) {
 		})
 	  }
 	
-	
-	
 	  return (
 		<div className="page">
-		  <div className="searchContainer">
-			<h2 className="title is-2 has-text-centered">
-			  Search for a movie
-			</h2>
+		  <div className="container">
+			<h3>Search for a movie</h3>
 			<SearchBar className="searchInput" onSearch={onSearch}/>
 			
-			<div className="container">
-			<CardList results={state.results}/>
+			<div>
+			<CardList colCount={2} md={6} className="item" results={state.results}/>
 			</div>
+
 		  </div>
 		</div>
 	  );
 
-	// return (
-
-	// 	<div className="page">
 
 	// 		<div>				
 	// 		<Form className="searchContainer">
@@ -57,35 +51,6 @@ function Home(props) {
 	// 		</Form>	 
 	// 		</div>
 
-
-	// 		<div className="container">
-
-	// 		<Card className="item" style={{ width: '18rem' }}>
-	// 			<Card.Title id="title">Title</Card.Title>
-	// 			<Card.Body id="body" > Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Body>
-	// 			<Button id="button" variant="primary">Go somewhere</Button>
-	// 		</Card>
-	// 		<Card className="item" style={{ width: '18rem' }}>
-	// 			<Card.Title id="title">Title</Card.Title>
-	// 			<Card.Body id="body" > Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Body>
-	// 			<Button id="button" variant="primary">Go somewhere</Button>
-	// 		</Card>
-	// 		<Card className="item" style={{ width: '18rem' }}>
-	// 			<Card.Title id="title">Title</Card.Title>
-	// 			<Card.Body id="body" > Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Body>
-	// 			<Button id="button" variant="primary">Go somewhere</Button>
-	// 		</Card>
-	// 		<Card className="item" style={{ width: '18rem' }}>
-	// 			<Card.Title id="title">Title</Card.Title>
-	// 			<Card.Body id="body" > Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Body>
-	// 			<Button id="button" variant="primary">Go somewhere</Button>
-	// 		</Card>
-			
-		
-	// 		</div>
-	// 	</div>
-
-	// );
 };
 
 export default Home;
