@@ -25,7 +25,7 @@ function Sidebar() {
               <FaIcons.FaUser/>
             </span>
             <span className="title"><Link to="/profile">
-              Profile
+              My Profile
             </Link></span>
           </div>
         </li>
@@ -35,7 +35,7 @@ function Sidebar() {
               <FaIcons.FaComment />
             </span>
             <span className="title"><Link to="/review">
-              Review
+              Write a Review
             </Link></span>
           </div>
         </li>
