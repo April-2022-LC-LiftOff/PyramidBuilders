@@ -1,19 +1,30 @@
 import React from "react";
-// import Card from "react-bootstrap/Card";
+import Card from "react-bootstrap/Card";
+import { Col, Row } from "react-bootstrap";
+
 
 export default function Cards(props) {
     const {movie} = props;
 
     return (
-        <div className="resultCard">
-            <figure className="image is-48x48">
-                <img src={movie.Poster} alt={movie.Title} />
-            </figure>
-            {/* <Card className="item" style={{ width: '18rem' }}>
-                <Card.img>{movie.Poster}</Card.img>
-                <Card.Title id="title">{movie.Title}</Card.Title>
-                <Card.Body id="body" >Year: {movie.Year}</Card.Body>
-            </Card> */}
+        <div className="cards" className="album">
+
+            <Row>
+                {Array.from({ length: 4 }).map((_, idx) => (
+                <Col>
+                    {/* <figure> */}
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img src={movie.Poster}></Card.Img>
+                            <Card.Title id="title">{movie.Title}</Card.Title>
+                            <Card.Body id="body" >Year: {movie.Year}</Card.Body>
+                        
+                        </Card>
+                    {/* </figure> */}
+                </Col>
+                ))}
+            </Row>
+
+
         </div>
     );
 }
