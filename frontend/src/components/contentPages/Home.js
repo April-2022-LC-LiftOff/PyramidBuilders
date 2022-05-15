@@ -41,17 +41,6 @@ function Home(props) {
 	  );
 
 
-	// 		<div>				
-	// 		<Form className="searchContainer">
-	// 			<Form.Group>
-	// 				<Form.Control className="searchInput" type="text" placeholder="Search reviews"/>
-	// 			</Form.Group>
-	// 			<Button id="searchIcon" variant="primary" type="submit">
-	// 				<FaIcons.FaSearch type="submit"/>
-	// 			</Button>
-	// 		</Form>	 
-	// 		</div>
-
 };
 
 export default Home;
