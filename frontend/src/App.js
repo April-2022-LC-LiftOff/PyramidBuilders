@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import Home from './components/contentPages/Home';
@@ -8,12 +10,11 @@ import Filter from './components/contentPages/Filter';
 import Review from './components/contentPages/Review';
 import './App.css';
 
-
 function App() {
   return (
     <div className='app'>
     <Router>
-      <Topbar />
+      <Topbar sticky="top" />
       <div className='app-container'>
         <Sidebar />
         <div className='page-container'>
