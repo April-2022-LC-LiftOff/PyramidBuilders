@@ -1,0 +1,21 @@
+.card {
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    height: 200px;
+    max-height: 35vh;
+    -webkit-box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+    margin: 20px;
+}
+
+.grid {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.grid > div {
+    flex-base: calc(20% - 40px);
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "./Card";
+import "./SearchMovies.css";
+
 
 function CardList( {results}) {
     let data = [];
@@ -8,7 +10,7 @@ function CardList( {results}) {
     }
 
     return (
-        <div className="result">
+        <div className="result" className="grid" >
             {data.map((item) => (
                 <Card className="item" key={item.imdbID} movie={item} />
             ))}
