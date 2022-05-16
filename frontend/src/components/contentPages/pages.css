@@ -4,9 +4,19 @@
 	padding: 8px 24px;
 }
 
+.row {
+	padding: 20px 0;
+}
+
 .root {
 	flex-grow: 1;
 }
+
+.profile-container {
+	/* flex-grow: 1; */
+	padding: 0 20px;
+}
+
 .bar {
 	background-color: #432232;
 }
@@ -16,6 +26,34 @@
 .title {
 	flex-grow: 1;
 }
+
+.profile-name {
+	font-size: xx-large;
+}
+
+.edit-button-text {
+	display: flex;
+}
+
+.profile-pic {
+	text-align: center;
+	min-width: 100px;
+	min-height: 100px;
+}
+
+.label {
+	font-size: small;
+}
+
+.profile-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.edit-button .btn .btn-light .btn-sm {
+	padding: 10px 10px 20px 10px;
+}
+
 .HeaderButton {
 	margin: "0 2% 0 2%";
 }
@@ -65,8 +103,8 @@
 /* MOVIE CARDS -- OLD */
 
 .container {
-	display: flex;
-	height: 300px;
+	height: 100vh;
+	width: 100vw;
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -97,8 +135,7 @@
 		"Lucida Sans", Arial, sans-serif;
 }
 
-
- /* SEARCH BAR -- OLD*/
+/* SEARCH BAR -- OLD*/
 
 .searchContainer {
 	display: flex;
@@ -153,7 +190,7 @@
 textarea {
 	width: 300px;
 	height: 150px;
-  }
+}
 
 .submitReview {
 	padding: 5px;
@@ -161,4 +198,3 @@ textarea {
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
 }
-

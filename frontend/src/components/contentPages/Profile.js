@@ -1,41 +1,69 @@
-import React from "react"; 
-import './pages.css';
-
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import EditButton from "./shared/editButton.js";
+import "./pages.css";
+import profilePic from "../../assets/tstark.jpeg";
 
 export default function Profile() {
+	const usrName = "John Doe";
+	const usrPword = "••••••••••";
+	const usrEmail = "email@email.com";
+  const usrBio = 'Anthony Edward "Tony" Stark was a billionaire industrialist, a founding member of the Avengers, and the former CEO of Stark Industries. A brash but brilliant inventor, Stark was self-described as a genius, billionaire, playboy, and philanthropist.'
+	return (
+		<Container className="profile-container">
+			<Row>
+				<h1>My Profile</h1>
+			</Row>
+			<Row className="profile-page">
+				{/* pic and bio column */}
+				<Col sm={4}>
+					<div className="col-bio">
+						<div className="profile-pic">
+							<img src={profilePic} className="profile-pic" />
+						</div>
+						
+            <Row className="profile-bio">
+							<div className="label bio">About Me:</div>
+							<div className="edit-button-text">
+								{usrBio}
+								<EditButton className="edit-button" />
+							</div>
+						</Row>
+						<p className="textStylingRadios">Social Media Apps??</p>
+					</div>
+				</Col>
 
+				{/* user info column */}
+				<Col sm={8}>
+					<div className="profile-info">
+						<Row className="profile-name">
+							<div className="label">Name</div>
+							<div className="edit-button-text">
+								{usrName}
+								<EditButton className="edit-button" />
+							</div>
+						</Row>
+						<Row className="profile-password">
+							<div className="label password">Password:</div>
+							<div className="edit-button-text">
+								{usrPword}
+								<EditButton className="edit-button" />
+							</div>
+              <div>
+              <input type="checkbox" onclick="myFunction()"/> Show Password
+              </div>
+						</Row>
 
-
-  return (
-    <div className="root">
-      <section className='profile-page'>
-        <form className="formStyles">
-        <div id='aviurl' className="formInputs">
-          <img src=
-          "https://st4.depositphotos.com/1012074/25277/v/1600/depositphotos_252773324-stock-illustration-young-avatar-face-with-sunglasses.jpg" alt='' className="imgStyles" />
-        </div>
-        <div className="formInputs">
-          <label><p className="textStylingInputs"> My Username: </p>
-            <input name='userName' type='text'
-            className="input" />
-          </label>
-          <label><p className="textStylingInputs">Password:</p>
-            <input name='password' type='text' className="input2" />
-          </label>
-          <label><p className="textStylingInputs">Confirm Password: </p>
-            <input name='password' type='text' className="input2" />
-          </label>
-          <label><p className="textStylingInputs">Email: </p>
-            <input name='email' type='email' className="input"/>
-          </label>
-          <label><p className="textStylingInputs">About Me: </p>
-            <textarea name='bio' className="input2" />
-          </label>
-            <p className="textStylingRadios">Social Media Apps??</p>
-          </div>
-        </form>
-      </section>
-    </div>
-  );
+						<Row className="profile-email">
+							<div className="label email">Email:</div>
+							<div className="edit-button-text">
+								{usrEmail}
+								<EditButton className="edit-button" />
+							</div>
+						</Row>
+					</div>
+				</Col>
+			</Row>
+		</Container>
+	);
 }
-
