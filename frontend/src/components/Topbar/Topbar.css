@@ -2,7 +2,7 @@
 
 .topbar {
 	height: var(--nav-size);
-	background-color: #2f4050;
+	background-color: #432232;
 	padding: 0 1rem;
 }
 
@@ -20,7 +20,7 @@
 	margin-right: 16px;
 	display: flex;
 	flex-direction: row;
-	color: white;
+	color: #cdbba9;
 	justify-content: center;
 	align-items: center;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
