@@ -36,5 +36,3 @@ out/
 ### VS Code ###
 .vscode/
 
-##Node_Modules
-node_modules
