@@ -1,0 +1,37 @@
+Index: pyramidbuilders/src/main/resources/React/index.jsx
+===================================================================
+diff --git a/pyramidbuilders/src/main/resources/React/index.jsx b/pyramidbuilders/src/main/resources/React/index.jsx
+--- a/pyramidbuilders/src/main/resources/React/index.jsx	
++++ b/pyramidbuilders/src/main/resources/React/index.jsx	
+@@ -1,0 +1,18 @@
++import React, { Component } from "react";
++import ReactDOM from 'react-dom';
++
++class Main extends Component {
++    render() {
++        return (
++            <div>
++                <h1>Demo Component</h1>
++                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"/>
++            </div>
++        );
++    }
++}
++
++ReactDOM.render(
++    <Main />,
++    document.getElementById('react-mountpoint')
++);
+\ No newline at end of file
+Index: pyramidbuilders/package.json
+===================================================================
+diff --git a/pyramidbuilders/package.json b/pyramidbuilders/package.json
+--- a/pyramidbuilders/package.json	
++++ b/pyramidbuilders/package.json	
+@@ -1,0 +1,5 @@
++{
++  "name": "RevU",
++  "description": "Review app",
++  "dependencies": {}
++}
+\ No newline at end of file
