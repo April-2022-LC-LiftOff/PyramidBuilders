@@ -9,25 +9,33 @@ import Search from './components/contentPages/Search';
 import Filter from './components/contentPages/Filter';
 import Review from './components/contentPages/Review';
 import './App.css';
+import React from 'react';
+import Footer from './components/Footer/Footer';
+import { Fragment } from 'react';
+import ScrollButton from './components/Footer/ScrollButton';
+
 
 function App() {
   return (
     <div className='app'>
-    <Router>
-      <Topbar sticky="top" />
-      <div className='app-container'>
-        <Sidebar />
-        <div className='page-container'>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/review" component={Review} />
-            <Route path="/search" component={Search} />
-            <Route path="/filter" component={Filter} />
-          </Switch>
+      <Router>
+        <Topbar />
+        <div className='app-container'>
+          <Sidebar />
+          <div className='page-container'>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/review" component={Review} />
+              <Route path="/search" component={Search} />
+              <Route path="/filter" component={Filter} />
+            </Switch>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+      <Footer/>
+      <ScrollButton />
+
     </div>
   );
 }
