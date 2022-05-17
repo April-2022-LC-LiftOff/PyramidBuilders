@@ -3,7 +3,7 @@
 .Sidebar {
 	height: 100%;
 	min-width: 200px;
-	background-color: #2f4050;
+	background-color: #432232;
 	justify-content: center;
 }
 
@@ -16,7 +16,7 @@
 .sidebar_li {
 	margin-left: 10%;
 	display: flex;
-	color: white;
+	color: #cdbba9;
 	align-items: center;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
@@ -24,11 +24,11 @@
 
 .sidebar_li:hover {
 	cursor: pointer;
-	background-color: #293846;
+	background-color: #1a0d1f;
 }
 
 .sidebar_li:active {
-	background-color: #293846;
+	background-color: #1a0d1f;
 }
 
 .icon {
