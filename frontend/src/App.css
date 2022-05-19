@@ -17,6 +17,7 @@ a {
 body {
 	margin: 0;
 	padding: 0;
+	background: blue;
 }
 
 .app-container {
@@ -24,3 +25,4 @@ body {
 	flex-direction: row;
 	height: 100vh;
 }
+
