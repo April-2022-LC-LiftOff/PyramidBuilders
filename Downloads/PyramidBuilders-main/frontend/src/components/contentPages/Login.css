@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.App{
+    align-items: center;
+    margin: auto;
+    background-color: white;
+}
+.Box {
+    align-items: center;
+    width: 280px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 19px;
+    background: rgb(183,72,175);
+    background: linear-gradient(50deg, rgba(183,72,175,1) 0%, rgba(159,196,238,1) 100%);
+    box-shadow: 0 0 2px rgb(78, 76, 78);
+    position: relative;
+    overflow: hidden;
+}
+.Form{
+    margin-top: 100px;
+}
+.Backdrop{
+    width: 160%;
+    height: 550px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    background: rgb(84,12,80);
+    background: linear-gradient(58deg, rgba(84,12,80,1) 0%, rgba(159,35,152,1) 100%);
+    top: -290px;
+    left: -70px;
+    transform: rotate(60deg)
+}
+
+.HeaderText {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.24;
+    color: white;
+    z-index: 10;
+    margin: 0px;
+    padding-left: 20px;
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.small{
+    color: white;
+    font-weight: 500;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+    z-index: 11;
+    margin: 0;
+    margin-top: 6px;
+    padding-left: 20px;
+}
+.HeaderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Top {
+ width: 100%;
+ height: 250px;
+ display: flex;
+ flex-direction: column;
+justify-content: flex-end;
+padding: 0 1.8em;
+padding-bottom: 5em;
+
+}
+.email{
+    margin-top: 100px;
+}
+h1 {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+  .field{
+      color: white;
+      margin-bottom: 20%;
+      margin-top: 10%;
+  }
+
+.Inner-Container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.MutedText {
+    font-size: 12px;
+    color: rgba(200 200 200, 0.0);
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    /* padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px; */
+}
+
+.Input {
+    align-items: center;
+   outline: none;
+   height: 42px;
+   width: 100%;
+   border: 1px solid rgba(200 200 200, 0.3);
+   padding: 0px 20px;
+   border-bottom: 1.4px solid-transparent;
+   transition: all 200ms ease-in-out;
+   font-size: 13px;
+}
+.Input:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(84,12,80);
+}
+
+.Input:not(Input:last-of-type){
+    border-bottom: 1.5px solid rgba(200 200 200, 0.1);
+}
+.Input::placeholder {
+    color:rgba(200 200 200, 1);
+}
+
+.form-container{
+    z-index: 10;
+}
+
+.SubmitButton {
+    margin-top: 15px;
+    width: 100%;
+    padding: 14px 40%;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    /* border: none; */
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    background: rgb(84,12,80);
+    background: linear-gradient(58deg, rgba(84,12,80,1) 0%, rgba(159,35,152,1) 100%); 
+}
+.SubmitButton:hover{
+    filter: brightness(1.03);
+}
+
+.Marginer{
+    margin: 1em;
+}
