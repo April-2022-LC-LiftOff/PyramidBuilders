@@ -47,14 +47,14 @@ class App extends Component {
           <Sidebar />
           <div className='page-container'>
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/review" component={Review} />
-              <Route path="/search" component={Search} />
-              <Route path="/filter" component={Filter} />
+              <Route path="/" exact component={()=><Home user = {this.state.user}/>} />
+              <Route path="/profile" component={()=><Profile user = {this.state.user}/>} />
+              <Route path="/review" component={()=><Review user = {this.state.user}/>} />
+              <Route path="/search" component={()=><Search user = {this.state.user}/>} />
+              <Route path="/filter" component={()=><Filter user = {this.state.user}/>} />
               <Route path="/login" component={Login} /> 
               <Route path="/register" exact component={SignupForm} />
-              <Route path="/welcome" exact component={< Welcome user = {this.state.user}/>} />              
+              <Route path="/welcome" exact component= {()=><Welcome user = {this.state.user}/>} />              
             </Switch>
           </div>
         </div>

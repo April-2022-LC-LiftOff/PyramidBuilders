@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class UserTempDatabase {
 
-    private static Map<Integer, User> users = new HashMap<>();
+    private static final Map<Integer, User> users = new HashMap<>();
 
     public static Collection<User> getAll() {
         return users.values();

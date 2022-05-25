@@ -16,16 +16,14 @@ import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.auth.UserRecord;
 import org.launchcode.backend.model.LoginForm;
 import org.launchcode.backend.model.User;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+
 
 import static java.lang.System.getenv;
 
@@ -92,8 +90,12 @@ public class UserController {
 
         //User signs in automatically after registration
         String idToken = signInWithPassword(email, password);
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "success");
+            response.put("token", idToken);
+            response.put("user", String.valueOf(getUserInfo(idToken)));
 
-        ResponseEntity responseEntity = new ResponseEntity<>(HttpStatus.CREATED);
+        ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.CREATED);
         return responseEntity;
         } else {
             Map<String, String> errorMessage = new HashMap<>();
@@ -108,7 +110,7 @@ public class UserController {
     private String signInWithPassword(String email, String password) throws IOException {
         GenericUrl url = new GenericUrl(VERIFY_PASSWORD_URL);
         //creates the JSON request headed to above URL API
-        Map<String, Object> content = ImmutableMap.<String, Object>of(
+        Map<String, Object> content = ImmutableMap.of(
                 "email", email, "password", password, "returnSecureToken", true);
        //Send JSON post request to API specified in the URL
         HttpRequest request = transport.createRequestFactory().buildPostRequest(url,
