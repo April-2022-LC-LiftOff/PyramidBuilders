@@ -1,9 +1,33 @@
-import React from 'react'
-import {TopbarData} from './TopbarData'
+import React, { Component } from 'react'
+import {UserTopbarData, GuestTopbarData} from './TopbarData'
 import './Topbar.css';
-import Login from '../contentPages/Login';
 
-function Topbar(props) {
+
+export default class Topbar extends Component {
+
+  render(){
+
+    if(this.props.user){
+      return (<nav className="topbar">
+      <ul className="topbar-nav">
+        
+        {UserTopbarData.map((val, key) => {
+          return (
+            <li 
+              key={val.title}
+              className="row"
+              id={window.location.pathName == val.link ? "active" : ""}
+              onClick={()=> {window.location.pathname = val.link;
+              }}
+            >
+              <div id="title">{val.title}</div>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+    );
+    }
     return (
     //   <nav className="topbar">
     //     <ul className="topbar-nav"> { props.children } </ul>
@@ -12,10 +36,10 @@ function Topbar(props) {
 
 <nav className="topbar">
       <ul className="topbar-nav">
-        {TopbarData.map((val, key) => {
+        {GuestTopbarData.map((val, key) => {
           return (
             <li 
-              key={Login}
+              key={val.title}
               className="row"
               id={window.location.pathName == val.link ? "active" : ""}
               onClick={()=> {window.location.pathname = val.link;
@@ -29,6 +53,5 @@ function Topbar(props) {
     </nav>
     );
   }
+}
 
-
-export default Topbar

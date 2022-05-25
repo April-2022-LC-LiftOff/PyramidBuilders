@@ -6,12 +6,15 @@ public class User extends AbstractEntity {
     private String email;
     private String password;
 
+    private String verifyPassword;
+
     public User(){}
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String verifyPassword) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.verifyPassword = verifyPassword;
     }
 
     public String getUsername() {
@@ -36,6 +39,14 @@ public class User extends AbstractEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
     }
 
     //for demonstration purposes

@@ -1,10 +1,47 @@
-import React from "react";
+import React, { Component } from "react";
 import "./SignupForm.css";
 import Form from "bootstrap";
 import { Link } from "react-router-dom";
 
-const SignupForm = () => {
-    return (  
+class SignupForm extends Component {
+    handleSubmit = async (e) =>{
+        e.preventDefault();
+
+
+        const data = {
+            username: this.username,
+            email: this.email,
+            password: this.password,
+            verifyPassword: this.verifyPassword
+        }
+
+        const url = "http://localhost:8080/api/user/login"
+
+        try{ 
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Accept' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const responseData = await response.json();
+
+            let token = responseData.token
+
+            localStorage.setItem("token", token);  
+
+            window.location.replace('/welcome')
+           
+        } catch (err){
+            console.log(err.message)
+        }
+        
+        
+    }
+    render() {
+        return (  
         <div className="App">
         <div className="Box">
             <div className="HeaderContainer">
@@ -31,5 +68,6 @@ const SignupForm = () => {
         </div>
     </div>
     )
+}
 }
 export default SignupForm;

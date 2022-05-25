@@ -11,18 +11,38 @@ import Review from './components/contentPages/Review';
 import Login from './components/contentPages/Login';
 import SignupForm from './components/contentPages/SignupForm';
 import './App.css';
-import React from 'react';
+import React, { Component } from 'react';
 import Footer from './components/Footer/Footer';
 import { Fragment } from 'react';
 import ScrollButton from './components/Footer/ScrollButton';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Welcome from './components/contentPages/Welcome';
 
 
-function App() {
-  return (
+
+class App extends Component {
+  state = {};
+  componentDidMount() {
+    const auth = {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')},
+    }
+
+  
+    axios.get('http://localhost:8080/api/user/user', auth).then( (user) => {
+      this.setState({
+        user: user.data,
+      })
+    })
+     
+  }
+
+ render(){ 
+   return (
     <div className='app'>
       <Router>
-        <Topbar />
+        <Topbar user={this.state.user} />
         <div className='app-container'>
           <Sidebar />
           <div className='page-container'>
@@ -32,8 +52,9 @@ function App() {
               <Route path="/review" component={Review} />
               <Route path="/search" component={Search} />
               <Route path="/filter" component={Filter} />
-              <Route path="/login" exact component={Login} /> 
-              <Route path="/register" exact component={SignupForm} />              
+              <Route path="/login" component={Login} /> 
+              <Route path="/register" exact component={SignupForm} />
+              <Route path="/welcome" exact component={< Welcome user = {this.state.user}/>} />              
             </Switch>
           </div>
         </div>
@@ -43,6 +64,7 @@ function App() {
 
     </div>
   );
+}
 }
 
 

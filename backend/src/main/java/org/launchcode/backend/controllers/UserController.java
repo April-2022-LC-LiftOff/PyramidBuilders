@@ -12,19 +12,20 @@ import com.google.api.client.json.JsonObjectParser;
 import com.google.common.collect.ImmutableMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.auth.UserRecord;
 import org.launchcode.backend.model.LoginForm;
 import org.launchcode.backend.model.User;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static java.lang.System.getenv;
 
@@ -39,9 +40,17 @@ public class UserController {
     private static final JsonFactory jsonFactory = Utils.getDefaultJsonFactory();
     private static final HttpTransport transport = Utils.getDefaultTransport();
 
+    @GetMapping("/user")
+    public ResponseEntity<?> getUser (@RequestHeader("Authorization") String header) throws FirebaseAuthException {
 
-    private static final PasswordEncoder encoder = new BCryptPasswordEncoder();
+        String idToken = header.replace("Bearer ", "");
 
+        HashMap<String, String> userData = getUserInfo(idToken);
+
+        ResponseEntity response = new ResponseEntity(userData, HttpStatus.OK);
+
+        return response;
+    }
     @PostMapping("/login")
     public ResponseEntity<?> loginUser (@RequestBody LoginForm login) throws FirebaseAuthException, IOException {
 
@@ -50,14 +59,13 @@ public class UserController {
 
             //User signs in
             String idToken= signInWithPassword(email, pwHash);
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "success");
+            response.put("token", idToken);
+            response.put("user", String.valueOf(getUserInfo(idToken)));
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Authorization", "Bearer "+ idToken);
-            ResponseEntity responseEntity = new ResponseEntity<>(headers, HttpStatus.OK);
+            ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
             return responseEntity;
-
-
-
     }
 
 
@@ -66,12 +74,16 @@ public class UserController {
     public ResponseEntity<?> registerUser (@RequestBody User user) throws FirebaseAuthException, IOException {
         String username = user.getUsername();
         String email = user.getEmail();
-        String pwHash = user.getPassword();
+        String password = user.getPassword();
+        String verifyPass = user.getVerifyPassword();
+
+        if (verifyPass.equals(password)){
+
         //Creates UserRecord object unique to Firebase's built in User Database
         UserRecord.CreateRequest register = new UserRecord.CreateRequest()
                 .setEmail(email)
                 .setEmailVerified(false)
-                .setPassword(pwHash)
+                .setPassword(password)
                 .setDisplayName(username)
                 .setDisabled(false);
 
@@ -79,12 +91,17 @@ public class UserController {
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(register);
 
         //User signs in automatically after registration
-        String idToken = signInWithPassword(email, pwHash);
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer "+ idToken);
+        String idToken = signInWithPassword(email, password);
 
-        ResponseEntity responseEntity = new ResponseEntity<>(headers, HttpStatus.CREATED);
+        ResponseEntity responseEntity = new ResponseEntity<>(HttpStatus.CREATED);
         return responseEntity;
+        } else {
+            Map<String, String> errorMessage = new HashMap<>();
+            errorMessage.put("message", "Passwords don't match");
+            ResponseEntity responseEntity = new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+
+            return responseEntity;
+        }
 
     }
     //Calls to Google API to verify login with password from Firebase User database and produces a JWT authentication token
@@ -107,6 +124,18 @@ public class UserController {
         } finally {
             response.disconnect();
         }
+    }
+
+    private HashMap<String, String> getUserInfo (String idToken) throws FirebaseAuthException {
+        FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
+        String uid = decodedToken.getUid();
+        UserRecord user = FirebaseAuth.getInstance().getUser(uid);
+        HashMap<String, String> userInfo = new HashMap<>();
+        userInfo.put("userID", user.getUid());
+        userInfo.put("username", user.getDisplayName());
+        userInfo.put("email", user.getEmail());
+        userInfo.put("photoUrl", user.getPhotoUrl());
+        return userInfo;
     }
 
 
