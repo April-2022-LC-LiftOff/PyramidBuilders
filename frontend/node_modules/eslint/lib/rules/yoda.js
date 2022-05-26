@@ -39,7 +39,7 @@ function isEqualityOperator(operator) {
  * @returns {boolean} Whether the operator is used in range tests.
  */
 function isRangeTestOperator(operator) {
-    return ["<", "<="].includes(operator);
+    return ["<", "<="].indexOf(operator) >= 0;
 }
 
 /**

@@ -22,7 +22,7 @@ const astUtils = require("./utils/ast-utils");
  *     shorthand form.
  */
 function isCommutativeOperatorWithShorthand(operator) {
-    return ["*", "&", "^", "|"].includes(operator);
+    return ["*", "&", "^", "|"].indexOf(operator) >= 0;
 }
 
 /**
@@ -33,7 +33,7 @@ function isCommutativeOperatorWithShorthand(operator) {
  *     a shorthand form.
  */
 function isNonCommutativeOperatorWithShorthand(operator) {
-    return ["+", "-", "/", "%", "<<", ">>", ">>>", "**"].includes(operator);
+    return ["+", "-", "/", "%", "<<", ">>", ">>>", "**"].indexOf(operator) >= 0;
 }
 
 //------------------------------------------------------------------------------

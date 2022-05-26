@@ -81,7 +81,7 @@ module.exports = {
          * @returns {void}
          */
         function checkVariable(variable) {
-            if (variable.writeable === false && !exceptions.includes(variable.name)) {
+            if (variable.writeable === false && exceptions.indexOf(variable.name) === -1) {
                 variable.references.forEach(checkReference);
             }
         }

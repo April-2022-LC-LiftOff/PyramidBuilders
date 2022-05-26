@@ -185,7 +185,7 @@ module.exports = {
 
             return Boolean(
                 previousTokenOrComment &&
-                ["Block", "Line"].includes(previousTokenOrComment.type)
+                ["Block", "Line"].indexOf(previousTokenOrComment.type) !== -1
             );
         }
 

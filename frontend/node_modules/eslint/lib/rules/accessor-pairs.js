@@ -299,12 +299,12 @@ module.exports = {
          * @private
          */
         function checkPropertyDescriptor(node) {
-            const namesToCheck = new Set(node.properties
+            const namesToCheck = node.properties
                 .filter(p => p.type === "Property" && p.kind === "init" && !p.computed)
-                .map(({ key }) => key.name));
+                .map(({ key }) => key.name);
 
-            const hasGetter = namesToCheck.has("get");
-            const hasSetter = namesToCheck.has("set");
+            const hasGetter = namesToCheck.includes("get");
+            const hasSetter = namesToCheck.includes("set");
 
             if (checkSetWithoutGet && hasSetter && !hasGetter) {
                 report(node, "missingGetter");

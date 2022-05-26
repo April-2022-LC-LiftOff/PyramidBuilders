@@ -37,7 +37,7 @@ module.exports = {
 
             ArrayExpression(node) {
 
-                const emptySpot = node.elements.includes(null);
+                const emptySpot = node.elements.indexOf(null) > -1;
 
                 if (emptySpot) {
                     context.report({ node, messageId: "unexpectedSparseArray" });

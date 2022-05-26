@@ -405,7 +405,7 @@ module.exports = {
                             loc: getAbsoluteRange(jsdocNode, param),
                             data: { name: param.name }
                         });
-                    } else if (!param.name.includes(".")) {
+                    } else if (param.name.indexOf(".") === -1) {
                         paramTagsByName[param.name] = param;
                     }
                 });

@@ -39,7 +39,7 @@ function escapeAndRepeat(s) {
 function parseMarkersOption(markers) {
 
     // `*` is a marker for JSDoc comments.
-    if (!markers.includes("*")) {
+    if (markers.indexOf("*") === -1) {
         return markers.concat("*");
     }
 
