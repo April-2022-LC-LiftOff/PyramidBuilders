@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import static java.lang.System.getenv;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
@@ -41,9 +40,7 @@ public class UserController {
     @GetMapping("/user")
     public ResponseEntity<?> getUser (@RequestHeader("Authorization") String header) throws FirebaseAuthException {
 
-        String idToken = header.replace("Bearer ", "");
-
-        HashMap<String, String> userData = getUserInfo(idToken);
+        HashMap<String,String> userData = User.getUserInfo(header);
 
         ResponseEntity response = new ResponseEntity(userData, HttpStatus.OK);
 
@@ -60,7 +57,7 @@ public class UserController {
             Map<String, String> response = new HashMap<>();
             response.put("message", "success");
             response.put("token", idToken);
-            response.put("user", String.valueOf(getUserInfo(idToken)));
+            response.put("user", String.valueOf(User.setUserInfo(idToken)));
 
             ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
             return responseEntity;
@@ -93,7 +90,7 @@ public class UserController {
             Map<String, String> response = new HashMap<>();
             response.put("message", "success");
             response.put("token", idToken);
-            response.put("user", String.valueOf(getUserInfo(idToken)));
+            response.put("user", String.valueOf(User.getUserInfo(idToken)));
 
         ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.CREATED);
         return responseEntity;
@@ -128,17 +125,7 @@ public class UserController {
         }
     }
 
-    private HashMap<String, String> getUserInfo (String idToken) throws FirebaseAuthException {
-        FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-        String uid = decodedToken.getUid();
-        UserRecord user = FirebaseAuth.getInstance().getUser(uid);
-        HashMap<String, String> userInfo = new HashMap<>();
-        userInfo.put("userID", user.getUid());
-        userInfo.put("username", user.getDisplayName());
-        userInfo.put("email", user.getEmail());
-        userInfo.put("photoUrl", user.getPhotoUrl());
-        return userInfo;
-    }
+
 
 
 }
