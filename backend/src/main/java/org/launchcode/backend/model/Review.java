@@ -11,7 +11,7 @@ public class Review extends AbstractEntity {
     private String title;
     private String userUID;
     private String movieId;
-    private Enum<Ratings> rating;
+    private Ratings rating;
     private String reviewText;
 
     public Review(){
