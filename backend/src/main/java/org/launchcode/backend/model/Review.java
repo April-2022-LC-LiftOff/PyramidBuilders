@@ -20,6 +20,7 @@ public class Review extends AbstractEntity {
 
     public static Review createReviewFromForm(ReviewForm form){
         Review review = new Review();
+        review.setId();
         review.setTitle(form.getTitle());
         review.setUserUID(form.getUserUID());
         review.setMovieId(form.getMovieId());

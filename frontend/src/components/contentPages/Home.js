@@ -33,7 +33,7 @@ function Home(props) {
 			<SearchBar className="searchInput" onSearch={onSearch}/>
 			
 			<div>
-			<CardList className="item" results={state.results}/>
+			<CardList className="item" results={state.results} />
 			</div>
 
 		  </div>

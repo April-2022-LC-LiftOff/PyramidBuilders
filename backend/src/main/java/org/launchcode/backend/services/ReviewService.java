@@ -1,17 +1,16 @@
 package org.launchcode.backend.services;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
-import org.launchcode.backend.config.FirebaseConfig;
 import org.launchcode.backend.model.Review;
 import org.launchcode.backend.model.ReviewForm;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
+
 
 @Service
 public class ReviewService {
@@ -43,15 +42,41 @@ public class ReviewService {
 
     }
 
-    public String updateReview(ReviewForm form) throws ExecutionException, InterruptedException {
+    public ArrayList<Review> getReviewByMovieId(String movieId) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+
+        ArrayList<Review> list = new ArrayList<>();
+        // asynchronously retrieve multiple documents
+        ApiFuture<QuerySnapshot> future = dbFirestore.collection("reviews").whereEqualTo("movieId", movieId).get();
+        // future.get() blocks on response
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (DocumentSnapshot document : documents) {
+            list.add(document.toObject(Review.class));
+        }
+
+        return list;
+    }
+
+    public ArrayList<Review> getReviewByUserId(String userUID) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+
+        ArrayList<Review> list = new ArrayList<>();
+        // asynchronously retrieve multiple documents
+        ApiFuture<QuerySnapshot> future = dbFirestore.collection("reviews").whereEqualTo("userUID", userUID).get();
+        // future.get() blocks on response
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (DocumentSnapshot document : documents) {
+            list.add(document.toObject(Review.class));
+        }
+
+        return list;
+    }
+
+    public String updateReview(Review review) throws ExecutionException, InterruptedException {
 
         Firestore dbFirestore = FirestoreClient.getFirestore();
 
-        Review review = new Review();
-
-        Review newReview = review.createReviewFromForm(form);
-
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("reviews").document(newReview.getId()).set(newReview);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("reviews").document(review.getId()).set(review);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 

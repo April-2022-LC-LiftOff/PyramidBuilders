@@ -18,7 +18,7 @@ public abstract class AbstractEntity {
         return String.valueOf(idCounter.getAndIncrement());
     }
 
-    public void setId(int id) {
+    public void setId() {
         this.id = createID();
     }
 

@@ -5,6 +5,7 @@ import org.launchcode.backend.model.ReviewForm;
 import org.launchcode.backend.services.ReviewService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
@@ -28,8 +29,18 @@ public class ReviewController {
         return reviewService.getReview(documentId);
     }
 
+    @GetMapping("/getAll")
+    public ArrayList<Review> getAllReviewsByMovieId (@RequestParam String movieId) throws InterruptedException, ExecutionException {
+        return reviewService.getReviewByMovieId(movieId);
+    }
+
+    @GetMapping("/getByUser")
+    public ArrayList<Review> getAllReviewsByUserId (@RequestParam String userId) throws InterruptedException, ExecutionException {
+        return reviewService.getReviewByUserId(userId);
+    }
+
     @PutMapping("/update")
-    public String updateReview(@RequestBody ReviewForm review) throws InterruptedException, ExecutionException {
+    public String updateReview(@RequestBody Review review) throws InterruptedException, ExecutionException {
         return reviewService.updateReview(review);
     }
 
