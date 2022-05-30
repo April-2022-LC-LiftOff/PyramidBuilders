@@ -12,10 +12,11 @@ import com.google.api.client.json.JsonObjectParser;
 import com.google.common.collect.ImmutableMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.auth.UserRecord;
 import org.launchcode.backend.model.LoginForm;
+import org.launchcode.backend.model.Profile;
 import org.launchcode.backend.model.User;
+import org.launchcode.backend.services.ProfileService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import static java.lang.System.getenv;
 
@@ -37,6 +39,12 @@ public class UserController {
     private static final JsonFactory jsonFactory = Utils.getDefaultJsonFactory();
     private static final HttpTransport transport = Utils.getDefaultTransport();
 
+    public ProfileService profileService;
+
+    public UserController(ProfileService profileService) {
+        this.profileService = profileService;
+    }
+
     @GetMapping("/user")
     public ResponseEntity<?> getUser (@RequestHeader("Authorization") String header) throws FirebaseAuthException {
 
@@ -46,6 +54,7 @@ public class UserController {
 
         return response;
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> loginUser (@RequestBody LoginForm login) throws FirebaseAuthException, IOException {
 
@@ -66,7 +75,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser (@RequestBody User user) throws FirebaseAuthException, IOException {
+    public ResponseEntity<?> registerUser (@RequestBody User user) throws FirebaseAuthException, IOException, ExecutionException, InterruptedException {
         String username = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();
@@ -85,12 +94,25 @@ public class UserController {
         //Sends User to Firebase's built in User Database.
         UserRecord userRecord = FirebaseAuth.getInstance().createUser(register);
 
+
         //User signs in automatically after registration
+
         String idToken = signInWithPassword(email, password);
-            Map<String, String> response = new HashMap<>();
+            HashMap<String, String> createdUser = User.getUserInfo(idToken);
+        Map<String, String> response = new HashMap<>();
             response.put("message", "success");
             response.put("token", idToken);
             response.put("user", String.valueOf(User.getUserInfo(idToken)));
+
+
+        Profile userProfile = new Profile();
+
+        userProfile.setUserUid(createdUser.get("userID"));
+        userProfile.setUsername(createdUser.get("username"));
+        userProfile.setEmail(createdUser.get("email"));
+        userProfile.setBioText("Write your bio here.");
+
+          String profile = profileService.createProfile(userProfile);
 
         ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.CREATED);
         return responseEntity;
