@@ -1,7 +1,7 @@
 import React from 'react'
 import * as FaIcons from 'react-icons/fa';
 
-export const TopbarData = [
+export const GuestTopbarData = [
     {
         title: 'Login',
         // icon: <FaIcons.FaHome />,
@@ -13,3 +13,15 @@ export const TopbarData = [
         link: '/register'
     }
 ];
+
+export const UserTopbarData = [
+    {
+        title: 'Profile',
+        link: '/profile'
+    },
+    { 
+        title: 'Logout',
+        link:'/'
+    }
+
+]
