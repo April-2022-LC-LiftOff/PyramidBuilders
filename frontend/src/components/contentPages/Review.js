@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Form from 'react-bootstrap/Form'
 import './pages.css';
 import Button from 'react-bootstrap/Button';
 
+import axios from 'axios';
+import OMDBapi from "../api/OMDBapi";
+
 const Review =() => {
+
+    const [movies, setMovies] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+
+    const getMovieRequest = async () => {
+        const url = "http://www.omdbapi.com/?s=avengers&apikey=84a99a76"
+
+        const response = await fetch(url);
+        const responseJson = await response.json();
+
+        console.log(responseJson);
+        setMovies(responseJson.Search);
+
+    };
+
+    useEffect(()=>{
+        getMovieRequest();
+    }, []);
+
 
     return (
         
@@ -11,13 +33,10 @@ const Review =() => {
             <Form className="reviewStyling">
 
                 <Form.Group className="selectMovie">
-                    <Form.Label className="selectLabel">Select a movie to review</Form.Label>
-                    <Form.Select placeholder="Select a movie">
-                       <option value="1">Movie 1 from API</option>
-                       <option value="2">Movie 2 from API</option>
-                       <option value="3">Movie 3 from API</option>
-                    </Form.Select>
-                </Form.Group>
+                    <Form.Label className="selectLabel">Select a movie to review: </Form.Label>
+                    <Form.Control type="text" placeholder="Start typing the movie name..."/>
+
+                </Form.Group> 
 
                 <Form.Group className="reviewButtons" style={{ display: 'flex' }}>
                     <Form.Label >Choose Your Rating</Form.Label>

@@ -7,7 +7,10 @@ import Home from './components/contentPages/Home';
 import Profile from './components/contentPages/Profile';
 import Search from './components/contentPages/Search';
 import Filter from './components/contentPages/Filter';
+
 import Review from './components/contentPages/Review';
+import CreateReview from './components/Reviews/CreateReview';
+
 import Login from './components/contentPages/Login';
 import SignupForm from './components/contentPages/SignupForm';
 import './App.css';
@@ -49,7 +52,7 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={()=><Home user = {this.state.user}/>} />
               <Route path="/profile" component={()=><Profile user = {this.state.user}/>} />
-              <Route path="/review" component={()=><Review user = {this.state.user}/>} />
+              <Route path="/review" component={()=><CreateReview user = {this.state.user}/>} />
               <Route path="/search" component={()=><Search user = {this.state.user}/>} />
               <Route path="/filter" component={()=><Filter user = {this.state.user}/>} />
               <Route path="/login" component={Login} /> 
