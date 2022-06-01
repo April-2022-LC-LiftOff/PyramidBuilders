@@ -2,8 +2,9 @@ import styled from 'styled-components';
   
   
 export const Content = styled.div`
-   overflowY: scroll;
+   overflow: scroll;
    height: 2500px;
+   background-color: #432232;
 `;
   
 export const Button = styled.div`
