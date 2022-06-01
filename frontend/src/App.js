@@ -5,8 +5,6 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import Home from './components/contentPages/Home';
 import Profile from './components/contentPages/Profile';
-import Search from './components/contentPages/Search';
-import Filter from './components/contentPages/Filter';
 import Review from './components/contentPages/Review';
 import './App.css';
 import React from 'react';
@@ -27,8 +25,6 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/profile" component={Profile} />
               <Route path="/review" component={Review} />
-              <Route path="/search" component={Search} />
-              <Route path="/filter" component={Filter} />
             </Switch>
           </div>
         </div>

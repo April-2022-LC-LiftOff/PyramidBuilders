@@ -27,22 +27,21 @@ function Home(props) {
 	
 	  return (
 		<div className="page">
-		  <div className="container">
-			  
-			<h3>Search for a movie</h3>
-			<SearchBar className="searchInput" onSearch={onSearch}/>
-			
-			<div>
-			<CardList className="item" results={state.results}/>
-			</div>
-
-			<div id="category">Featured Movies</div>
 			
 			<div className="container">
-			<FeaturedList className="item" />
+				<div id="searchField">Search for a movie
+				<SearchBar className="searchInput" onSearch={onSearch}/>
+				</div>
 			</div> 
 
-		  </div>
+			<div >
+				<CardList className="item" results={state.results}/>
+			</div>
+
+			<div className="container" id="category">Featured Movies</div>
+			
+			<div className="container"> <FeaturedList className="item" /> </div>
+
 		</div>
 	  );
 
