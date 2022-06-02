@@ -4,12 +4,11 @@ import { PencilSquare } from "react-bootstrap-icons";
 
 const EditButton = () => {
 	return (
-        <div>
-            <Button size="sm" variant="light">
-			<PencilSquare /> 
-		</Button>
-        </div>
-		
+		<div>
+			<Button size="sm" variant="light" disabled="false">
+				<PencilSquare />
+			</Button>
+		</div>
 	);
 };
 

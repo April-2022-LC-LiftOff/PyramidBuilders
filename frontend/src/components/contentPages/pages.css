@@ -8,6 +8,12 @@
 	padding: 20px 0;
 }
 
+.top-bar-login {
+	padding: 10px;
+	color: white;
+	margin-left: 0;
+}
+
 .root {
 	flex-grow: 1;
 }
@@ -15,6 +21,7 @@
 .profile-container {
 	/* flex-grow: 1; */
 	padding: 0 20px;
+	justify-content: left !important;
 }
 
 .bar {
@@ -45,8 +52,13 @@
 	min-height: 100px;
 }
 
+.profile-page {
+	padding-top: 0;
+	height: 100vh;
+}
+
 .label {
-	font-size: small;
+	font-size: medium;
 }
 
 .col-profile-info {
@@ -60,13 +72,12 @@
 }
 
 .col-review-cards {
-	overflow: scroll;
-	max-height: 600px;
+	overflow: auto;
+	max-height: 80vh;
 }
 
 .card-img,
 .card-img-top {
-	width: 25%;
 	margin-left: 10px;
 }
 
@@ -74,6 +85,21 @@
 	flex-direction: row;
 	height: 200px !important;
 	background-color: white !important;
+	padding: 10px;
+}
+
+.bio-card {
+	flex-direction: row;
+	height: auto !important;
+	background-color: white !important;
+	padding: 10px;
+}
+
+.page-title,
+h1 {
+	color: black;
+	text-decoration: none;
+	text-align: left;
 }
 
 .edit-button .btn .btn-light .btn-sm {
@@ -129,11 +155,10 @@
 /* SEARCHBAR - ACTIVE */
 
 .container {
-	height: 100vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: row;
-	/* height: 50px; */
+	height: 50px;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
