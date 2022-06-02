@@ -5,8 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import Home from './components/contentPages/Home';
 import Profile from './components/contentPages/Profile';
-import Search from './components/contentPages/Search';
-import Filter from './components/contentPages/Filter';
+
 import Review from './components/contentPages/Review';
 import Login from './components/contentPages/Login';
 import SignupForm from './components/contentPages/SignupForm';
@@ -50,8 +49,6 @@ class App extends Component {
               <Route path="/" exact component={()=><Home user = {this.state.user}/>} />
               <Route path="/profile" component={()=><Profile user = {this.state.user}/>} />
               <Route path="/review" component={()=><Review user = {this.state.user}/>} />
-              <Route path="/search" component={()=><Search user = {this.state.user}/>} />
-              <Route path="/filter" component={()=><Filter user = {this.state.user}/>} />
               <Route path="/login" component={Login} /> 
               <Route path="/register" exact component={SignupForm} />
               <Route path="/welcome" exact component= {()=><Welcome user = {this.state.user}/>} />              
