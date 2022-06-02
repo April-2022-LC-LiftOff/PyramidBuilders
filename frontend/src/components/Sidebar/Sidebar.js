@@ -39,26 +39,6 @@ function Sidebar() {
             </Link></span>
           </div>
         </li>
-        <li className="sidebar_li">
-          <div className="sidebar_li">
-            <span className="icon">
-              <FaIcons.FaSearch />
-            </span>
-            <span className="title"><Link to="/search">
-              Search
-            </Link></span>
-          </div>
-        </li>
-        <li className="sidebar_li">
-          <div className="sidebar_li">
-            <span className="icon">
-              <FaIcons.FaFilter />
-            </span>
-            <span className="title"><Link to="/filter">
-              Filter
-            </Link></span>
-          </div>
-        </li>
       </ul>
     </div>
   )

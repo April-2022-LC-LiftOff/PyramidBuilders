@@ -18,15 +18,5 @@ export const SidebarData = [
         title: 'Review',
         icon: <FaIcons.FaComment />,
         link: <Link to='/review'>Review</Link>
-    },
-    {
-        title: 'Search',
-        icon: <FaIcons.FaSearch />,
-        link: <Link to='/search'>Search</Link>
-    },
-    {
-        title: 'Filter',
-        icon: <FaIcons.FaFilter />,
-        link: <Link to='/filter'>Filter</Link>
     }
 ];
