@@ -70,12 +70,11 @@
 	margin-left: 10px;
 }
 
-/* .card,
 .review-card {
-	width: "500px" !important;
-	max-height: "200px" !important;
-	flex-direction: row !important;
-} */
+	flex-direction: row;
+	height: 200px !important;
+	background-color: white !important;
+}
 
 .edit-button .btn .btn-light .btn-sm {
 	padding: 10px 10px 20px 10px;

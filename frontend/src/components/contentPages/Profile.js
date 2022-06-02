@@ -90,7 +90,7 @@ export default function Profile() {
 				</Col>
 				<Col sm={5}>
 					<div className="col-review-cards">
-						<Card style={{ flexDirection: "row", height: "200px" }}>
+						<Card className="review-card">
 							<Card.Img variant="top" src={reviewOne} style={{ size: "sm" }} />
 							<Card.Body>
 								<Card.Title>{stars}Iron Man</Card.Title>
