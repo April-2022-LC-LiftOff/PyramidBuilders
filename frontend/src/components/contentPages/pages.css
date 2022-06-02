@@ -31,6 +31,10 @@
 	font-size: xx-large;
 }
 
+.profile-name.row {
+	padding-top: 0 !important;
+}
+
 .edit-button-text {
 	display: flex;
 }
@@ -45,10 +49,33 @@
 	font-size: small;
 }
 
-.profile-info {
+.col-profile-info {
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
 }
+
+.col-bio {
+	padding: 10px;
+}
+
+.col-review-cards {
+	overflow: scroll;
+	max-height: 600px;
+}
+
+.card-img,
+.card-img-top {
+	width: 25%;
+	margin-left: 10px;
+}
+
+/* .card,
+.review-card {
+	width: "500px" !important;
+	max-height: "200px" !important;
+	flex-direction: row !important;
+} */
 
 .edit-button .btn .btn-light .btn-sm {
 	padding: 10px 10px 20px 10px;
