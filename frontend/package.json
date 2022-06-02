@@ -15,11 +15,8 @@
 		"react-icons": "^4.3.1",
 		"react-router-dom": "^5.0.0",
 		"react-scripts": "^5.0.1",
-<<<<<<< HEAD
 		"react-social-icons": "^5.13.0",
-=======
 		"styled-components": "^5.3.5",
->>>>>>> main
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
