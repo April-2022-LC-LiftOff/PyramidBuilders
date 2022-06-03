@@ -4,9 +4,26 @@
 	padding: 8px 24px;
 }
 
+.row {
+	padding: 20px 0;
+}
+
+.top-bar-login {
+	padding: 10px;
+	color: white;
+	margin-left: 0;
+}
+
 .root {
 	flex-grow: 1;
 }
+
+.profile-container {
+	/* flex-grow: 1; */
+	padding: 0 20px;
+	justify-content: left !important;
+}
+
 .bar {
 	background-color: #432232;
 }
@@ -16,6 +33,79 @@
 .title {
 	flex-grow: 1;
 }
+
+.profile-name {
+	font-size: xx-large;
+}
+
+.profile-name.row {
+	padding-top: 0 !important;
+}
+
+.edit-button-text {
+	display: flex;
+}
+
+.profile-pic {
+	text-align: center;
+	min-width: 100px;
+	min-height: 100px;
+}
+
+.profile-page {
+	padding-top: 0;
+	height: 100vh;
+}
+
+.label {
+	font-size: medium;
+}
+
+.col-profile-info {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.col-bio {
+	padding: 10px;
+}
+
+.col-review-cards {
+	overflow: auto;
+	max-height: 80vh;
+}
+
+.card-img,
+.card-img-top {
+	margin-left: 10px;
+}
+
+.review-card {
+	flex-direction: row;
+	height: 200px !important;
+	background-color: white !important;
+	padding: 10px;
+}
+
+.bio-card {
+	flex-direction: row;
+	height: auto !important;
+	background-color: white !important;
+	padding: 10px;
+}
+
+.page-title,
+h1 {
+	color: black;
+	text-decoration: none;
+	text-align: left;
+}
+
+.edit-button .btn .btn-light .btn-sm {
+	padding: 10px 10px 20px 10px;
+}
+
 .HeaderButton {
 	margin: "0 2% 0 2%";
 }
@@ -65,6 +155,7 @@
 /* SEARCHBAR - ACTIVE */
 
 .container {
+	width: 100vw;
 	display: flex;
 	flex-direction: row;
 	height: 50px;
@@ -74,7 +165,59 @@
 	align-content: flex-start;
 }
 
-/* WRITE REVIEW PAGE - ACTIVE */
+.item {
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	background: #baa690;
+}
+
+#title {
+	font-weight: bold;
+	margin: 5px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+#body {
+	margin: 5px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+#button {
+	margin: 15px;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+}
+
+/* SEARCH BAR -- OLD*/
+
+.searchContainer {
+	display: flex;
+	margin: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.searchInput {
+	margin: 5%;
+	padding: 5%;
+	border-radius: 100px;
+	font-size: 1.25rem;
+	margin-left: 5%;
+	flex: 70%;
+}
+
+#searchIcon {
+	margin: 35px;
+	height: 50px;
+	width: 50px;
+	padding: 10px;
+	place-items: center;
+}
+
+/* WRITE REVIEW PAGE */
 
 .reviewStyling {
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -103,7 +246,7 @@
 textarea {
 	width: 300px;
 	height: 150px;
-  }
+}
 
 .submitReview {
 	padding: 5px;
