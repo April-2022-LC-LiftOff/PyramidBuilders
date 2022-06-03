@@ -10,7 +10,7 @@ import reviewThree from "../../assets/moana.jpg";
 import reviewFour from "../../assets/bridget.jpg";
 import "./pages.css";
 
-export default function Profile() {
+export default function Profile(props) {
 	const usrName = "John Doe";
 	const usrPword = "••••••••••"; //{usrPword}
 	const usrEmail = "email@email.com";
