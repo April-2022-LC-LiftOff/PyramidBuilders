@@ -1,18 +1,6 @@
 package org.launchcode.backend.controllers;
 
-import com.google.api.client.googleapis.util.Utils;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.json.JsonHttpContent;
-import com.google.api.client.json.GenericJson;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.JsonObjectParser;
-import com.google.common.collect.ImmutableMap;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
 import org.launchcode.backend.model.LoginForm;
 import org.launchcode.backend.model.Profile;
 import org.launchcode.backend.model.User;
@@ -27,18 +15,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static java.lang.System.getenv;
+import static org.launchcode.backend.services.UserService.signInWithPassword;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
 
-    private static final String API_KEY = getenv("PROJECTKEY");
-    private static final String VERIFY_PASSWORD_URL =
-            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY;
-    private static final JsonFactory jsonFactory = Utils.getDefaultJsonFactory();
-    private static final HttpTransport transport = Utils.getDefaultTransport();
+
 
     public ProfileService profileService;
     public UserService userService;
@@ -105,7 +89,7 @@ public class UserController {
         userProfile.setEmail(createdUser.get("email"));
         userProfile.setBioText("Write your bio here.");
 
-          String profile = profileService.createProfile(userProfile);
+        profileService.createProfile(userProfile);
 
         ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.CREATED);
         return responseEntity;
@@ -118,27 +102,7 @@ public class UserController {
         }
 
     }
-    //Calls to Google API to verify login with password from Firebase User database and produces a JWT authentication token
-    public static String signInWithPassword(String email, String password) throws IOException {
-        GenericUrl url = new GenericUrl(VERIFY_PASSWORD_URL);
-        //creates the JSON request headed to above URL API
-        Map<String, Object> content = ImmutableMap.of(
-                "email", email, "password", password, "returnSecureToken", true);
-       //Send JSON post request to API specified in the URL
-        HttpRequest request = transport.createRequestFactory().buildPostRequest(url,
-                new JsonHttpContent(jsonFactory, content));
-        request.setParser(new JsonObjectParser(jsonFactory));
 
-        //Sends request
-        HttpResponse response = request.execute();
-        //Produces the Authentication token.
-        try {
-            GenericJson json = response.parseAs(GenericJson.class);
-            return json.get("idToken").toString();
-        } finally {
-            response.disconnect();
-        }
-    }
 
 
 

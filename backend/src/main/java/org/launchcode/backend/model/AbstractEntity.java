@@ -11,7 +11,7 @@ public abstract class AbstractEntity {
         return id;
     }
 
-    private static AtomicLong idCounter = new AtomicLong();
+    private static final AtomicLong idCounter = new AtomicLong();
 
     public static String createID()
     {

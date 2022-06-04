@@ -21,7 +21,7 @@ public class ReviewService {
 
         Review review = new Review();
 
-        Review newReview = review.createReviewFromForm(form);
+        Review newReview = Review.createReviewFromForm(form);
 
         ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("reviews").document(newReview.getId()).set(newReview);
 

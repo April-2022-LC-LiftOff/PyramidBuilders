@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static org.launchcode.backend.controllers.UserController.signInWithPassword;
+import static org.launchcode.backend.services.UserService.signInWithPassword;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
@@ -50,10 +50,10 @@ public class ProfileController {
         Profile profile = new Profile();
         boolean loginFail = Boolean.parseBoolean(signInWithPassword(userRecord.getEmail(), profileForm.getVerifyPassword()));
 
-        if( !loginFail && profileForm.getNewPassword().equals(profileForm.getVerifyPassword())){
+        if (!loginFail && profileForm.getNewPassword().equals(profileForm.getVerifyPassword())) {
             userService.updateUser(uid, profileForm.getVerifyPassword(), profileForm);
-        }else if (!loginFail){
-            userService.updateUser(uid, profileForm.getNewPassword(),profileForm);
+        } else if (!loginFail) {
+            userService.updateUser(uid, profileForm.getNewPassword(), profileForm);
         } else {
             Map<String, String> response = new HashMap<>();
             response.put("message", "failure");
@@ -69,8 +69,8 @@ public class ProfileController {
         profileService.updateProfile(profile);
 
 
-        if(profileForm.getNewPassword().isBlank()){
-           String newId = signInWithPassword(userRecord.getEmail(), profileForm.getVerifyPassword());
+        if (profileForm.getNewPassword().isBlank()) {
+            String newId = signInWithPassword(userRecord.getEmail(), profileForm.getVerifyPassword());
             Map<String, String> response = new HashMap<>();
             response.put("message", "success");
             response.put("token", newId);
@@ -79,7 +79,7 @@ public class ProfileController {
             ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
             return responseEntity;
         } else {
-            String newId= signInWithPassword(profileForm.getEmail(), profileForm.getNewPassword());
+            String newId = signInWithPassword(profileForm.getEmail(), profileForm.getNewPassword());
             Map<String, String> response = new HashMap<>();
             response.put("message", "success");
             response.put("token", newId);
@@ -88,7 +88,6 @@ public class ProfileController {
             ResponseEntity responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
             return responseEntity;
         }
-
 
 
     }
