@@ -17,6 +17,7 @@ import org.launchcode.backend.model.LoginForm;
 import org.launchcode.backend.model.Profile;
 import org.launchcode.backend.model.User;
 import org.launchcode.backend.services.ProfileService;
+import org.launchcode.backend.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +41,11 @@ public class UserController {
     private static final HttpTransport transport = Utils.getDefaultTransport();
 
     public ProfileService profileService;
+    public UserService userService;
 
-    public UserController(ProfileService profileService) {
+    public UserController(ProfileService profileService, UserService userService) {
         this.profileService = profileService;
+        this.userService = userService;
     }
 
     @GetMapping("/user")
@@ -83,17 +86,7 @@ public class UserController {
 
         if (verifyPass.equals(password)){
 
-        //Creates UserRecord object unique to Firebase's built in User Database
-        UserRecord.CreateRequest register = new UserRecord.CreateRequest()
-                .setEmail(email)
-                .setEmailVerified(false)
-                .setPassword(password)
-                .setDisplayName(username)
-                .setDisabled(false);
-
-        //Sends User to Firebase's built in User Database.
-        UserRecord userRecord = FirebaseAuth.getInstance().createUser(register);
-
+        userService.createUser(user);
 
         //User signs in automatically after registration
 
@@ -126,7 +119,7 @@ public class UserController {
 
     }
     //Calls to Google API to verify login with password from Firebase User database and produces a JWT authentication token
-    private String signInWithPassword(String email, String password) throws IOException {
+    public static String signInWithPassword(String email, String password) throws IOException {
         GenericUrl url = new GenericUrl(VERIFY_PASSWORD_URL);
         //creates the JSON request headed to above URL API
         Map<String, Object> content = ImmutableMap.of(

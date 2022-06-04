@@ -13,6 +13,7 @@ import java.util.HashMap;
 public class ProfileForm extends Profile {
 
     private String PhotoURL;
-    private String password;
+    private String verifyPassword;
+    private String newPassword;
 
 }

@@ -26,6 +26,13 @@ public class User extends AbstractEntity {
         this.verifyPassword = verifyPassword;
     }
 
+    public static User userFromUserRecord(UserRecord userRecord) {
+        User user = new User();
+        user.setUsername(userRecord.getDisplayName());
+        user.setEmail(userRecord.getEmail());
+        return user;
+    }
+
     public String getUsername() {
         return username;
     }
