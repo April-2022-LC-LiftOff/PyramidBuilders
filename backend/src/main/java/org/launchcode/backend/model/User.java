@@ -1,5 +1,12 @@
 package org.launchcode.backend.model;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseToken;
+import com.google.firebase.auth.UserRecord;
+
+import java.util.HashMap;
+
 public class User extends AbstractEntity {
 
     private String username;
@@ -15,6 +22,13 @@ public class User extends AbstractEntity {
         this.email = email;
         this.password = password;
         this.verifyPassword = verifyPassword;
+    }
+
+    public static User userFromUserRecord(UserRecord userRecord) {
+        User user = new User();
+        user.setUsername(userRecord.getDisplayName());
+        user.setEmail(userRecord.getEmail());
+        return user;
     }
 
     public String getUsername() {
@@ -58,4 +72,29 @@ public class User extends AbstractEntity {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public static HashMap<String, String> getUserInfo(String header) throws FirebaseAuthException {
+        String id = User.getUserIdToken(header);
+        HashMap<String,String> user = User.setUserInfo(id);
+        return user;
+    }
+
+    public static HashMap<String, String> setUserInfo(String idToken) throws FirebaseAuthException{
+        FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
+        String uid = decodedToken.getUid();
+        UserRecord user = FirebaseAuth.getInstance().getUser(uid);
+        HashMap<String, String> userInfo = new HashMap<>();
+        userInfo.put("userID", user.getUid());
+        userInfo.put("username", user.getDisplayName());
+        userInfo.put("email", user.getEmail());
+        userInfo.put("photoUrl", user.getPhotoUrl());
+        return userInfo;
+    }
+    public static String getUserIdToken (String header) throws FirebaseAuthException {
+
+        String idToken = header.replace("Bearer ", "");
+
+        return idToken;
+    }
+
 }
