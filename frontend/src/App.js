@@ -6,7 +6,9 @@ import Topbar from "./components/Topbar/Topbar";
 import Home from "./components/contentPages/Home";
 import Profile from "./components/contentPages/Profile";
 
-import Review from "./components/contentPages/Review";
+import CreateReview from './components/Reviews/CreateReview';
+
+
 import Login from "./components/contentPages/Login";
 import SignupForm from "./components/contentPages/SignupForm";
 import "./App.css";
@@ -59,7 +61,7 @@ class App extends Component {
 								<Route
 									path="/review"
 									component={() => (
-										<Review user={this.state.user} />
+										<CreateReview user={this.state.user} />
 									)}
 								/>
 								<Route path="/login" component={Login} />

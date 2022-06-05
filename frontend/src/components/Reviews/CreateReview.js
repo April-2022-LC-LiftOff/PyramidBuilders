@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Form from 'react-bootstrap/Form'
-import './pages.css';
+import '../contentPages/pages.css';
 import Button from 'react-bootstrap/Button';
+import ReviewSearchBox from "./ReviewSearchBox";
+import InputResults from "./InputResults";
 
-import axios from 'axios';
-import OMDBapi from "../api/OMDBapi";
-import ReviewSearchBox from "../Reviews/ReviewSearchBox";
 
 const Review =() => {
 
     const [movies, setMovies] = useState([]);
     const [searchValue, setSearchValue] = useState('');
 
-    const getMovieRequest = async () => {
-        const url = "http://www.omdbapi.com/?s=avengers&apikey=84a99a76"
+    const getMovieRequest = async (searchValue) => {
+        const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=84a99a76`
 
         const response = await fetch(url);
         const responseJson = await response.json();
 
-        console.log(responseJson);
+        if (responseJson.Search) {
         setMovies(responseJson.Search);
-
+        }
     };
 
     useEffect(()=>{
-        getMovieRequest();
-    }, []);
+        getMovieRequest(searchValue);
+    }, [searchValue]);
 
 
     return (
@@ -35,7 +34,8 @@ const Review =() => {
 
                 <Form.Group className="selectMovie">
                     <Form.Label className="selectLabel">Select a movie to review: </Form.Label>
-                    <ReviewSearchBox />
+                    <ReviewSearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
+                    <InputResults movies = {movies}/>
                 </Form.Group> 
 
                 <Form.Group className="reviewButtons" style={{ display: 'flex' }}>
