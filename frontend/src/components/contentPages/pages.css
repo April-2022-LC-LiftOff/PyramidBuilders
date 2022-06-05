@@ -167,7 +167,7 @@ h1 {
 
 /* WRITE REVIEW PAGE */
 
-.reviewStyling {
+/* .reviewStyling {
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
 	padding: 10px;
@@ -179,10 +179,6 @@ h1 {
 
 .selectLabel {
 	margin-right: 16px;
-}
-
-.reviewButtons {
-	padding: 10px;
 }
 
 .writeReview {
@@ -201,4 +197,4 @@ textarea {
 	margin: 10px;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
-}
+} */

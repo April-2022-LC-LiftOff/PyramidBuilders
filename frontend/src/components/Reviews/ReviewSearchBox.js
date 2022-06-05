@@ -7,7 +7,7 @@ const ReviewSearchBox = (props) => {
             className="form-control"
             value={props.value}
             onChange={(e)=> props.setSearchValue(e.target.value)}
-            placeholder="Type movie name to search..."
+            placeholder="Type movie name..."
             ></input>
         </div>
     )

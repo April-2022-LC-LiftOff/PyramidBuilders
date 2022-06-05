@@ -4,6 +4,8 @@ import '../contentPages/pages.css';
 import Button from 'react-bootstrap/Button';
 import ReviewSearchBox from "./ReviewSearchBox";
 import InputResults from "./InputResults";
+import StarRating from "./StarRating";
+
 
 
 const Review =() => {
@@ -38,13 +40,9 @@ const Review =() => {
                     <InputResults movies = {movies}/>
                 </Form.Group> 
 
-                <Form.Group className="reviewButtons" style={{ display: 'flex' }}>
-                    <Form.Label >Choose Your Rating</Form.Label>
-                    <Form.Check  label="1" type="radio"></Form.Check>
-                    <Form.Check  label="2" type="radio"></Form.Check>
-                    <Form.Check  label="3" type="radio"></Form.Check>
-                    <Form.Check  label="4" type="radio"></Form.Check>
-                    <Form.Check  label="5" type="radio"></Form.Check>
+                <Form.Group className="selectMovie" style={{ dislay: 'flex' }}>
+                    <Form.Label className="selectLabel">Choose Your Rating</Form.Label>
+                    <StarRating className="starRating"  />
                 </Form.Group>
 
                 <Form.Group className="writeReview">
