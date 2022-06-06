@@ -32,25 +32,23 @@ const Review =() => {
     const selectReviewMovie = (movie) => {
         const newSelectedMovie = [...selectedMovie, movie];
         setSelectedMovie(newSelectedMovie);
-        console.log("hello");
-        console.log(newSelectedMovie);
     }
 
 
     return (
         
         <div className="page">
-            <Form className="reviewStyling">
+            <Form className="block">
 
-                <Form.Group className="selectMovie">
-                    <Form.Label className="selectLabel">Select a movie to review: </Form.Label>
+                <Form.Group>
+                    <Form.Label>Select a movie to review: </Form.Label>
                     <ReviewSearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
                     <InputResults movies = {movies} handleSelectMovieClick={selectReviewMovie} />
                 </Form.Group> 
 
-                <Form.Group className="selectMovie" style={{ dislay: 'flex' }}>
-                    <Form.Label className="selectLabel">Choose Your Rating</Form.Label>
-                    <StarRating className="starRating"  />
+                <Form.Group style={{ dislay: 'flex' }}>
+                    <Form.Label>Choose Your Rating</Form.Label>
+                    <StarRating />
                 </Form.Group>
 
                 <Form.Group className="writeReview">

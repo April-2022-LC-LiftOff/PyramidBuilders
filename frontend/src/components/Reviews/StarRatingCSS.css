@@ -13,37 +13,20 @@ button.off {
     color: #ccc;
 }
 
-
-
-
-.reviewStyling {
+.block {
+	display: block;
+	padding: 10px;
+	margin: 10px;
+	width: 300px;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
-	padding: 10px;
-}
-
-.selectMovie {
-	padding: 10px;
-}
-
-.selectLabel {
-	margin-right: 16px;
+	"Lucida Sans", Arial, sans-serif;
+	font-weight: bold;
 }
 
 .writeReview {
-	padding: 10px;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	margin-top: 16px;
 }
 
 textarea {
-	width: 300px;
-	height: 150px;
-}
-
-.submitReview {
-	padding: 5px;
-	margin: 10px;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	margin-bottom: 20px;
 }
