@@ -1,9 +1,11 @@
-ELP.md
+
+*ELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+.eslintcache
 
 ### STS ###
 .apt_generated
@@ -36,3 +38,5 @@ out/
 ### VS Code ###
 .vscode/
 
+### Node_Modules###
+node_modules/

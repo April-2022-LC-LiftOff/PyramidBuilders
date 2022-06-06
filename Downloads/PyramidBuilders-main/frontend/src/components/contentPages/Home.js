@@ -1,13 +1,11 @@
 import React, { Component, useState } from "react";
-// import Card from "react-bootstrap/Card";
-// import Button from 'react-bootstrap/Button';
-// import * as FaIcons from 'react-icons/fa';
-// import Form from 'react-bootstrap/Form';
+
 import './pages.css';
 import '../SearchFunctions/SearchMovies.css';
 
 import CardList from "../SearchFunctions/CardList";
 import SearchBar from "../SearchFunctions/SearchBar";
+import FeaturedList from "../FeaturedMovies/FeaturedList";
 import OMDBapi from "../api/OMDBapi";
 
 
@@ -28,15 +26,21 @@ function Home(props) {
 	
 	  return (
 		<div className="page">
-		  <div className="container">
-			<h3>Search for a movie</h3>
-			<SearchBar className="searchInput" onSearch={onSearch}/>
-			
-			<div>
-			<CardList className="item" results={state.results}/>
+
+			<div className="container">
+				<div id="searchField">Search for a movie
+				<SearchBar className="searchInput" onSearch={onSearch}/>
+				</div>
 			</div>
 
-		  </div>
+			<div >
+				<CardList className="item" results={state.results}/>
+			</div>
+
+			<div className="container" id="category">Featured Movies</div>
+
+			<div className="container"> <FeaturedList className="item" /> </div>
+
 		</div>
 	  );
 
