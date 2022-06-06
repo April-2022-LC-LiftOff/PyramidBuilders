@@ -155,7 +155,6 @@ h1 {
 /* SEARCHBAR - ACTIVE */
 
 .container {
-	width: 100vw;
 	display: flex;
 	flex-direction: row;
 	height: 50px;
@@ -165,61 +164,10 @@ h1 {
 	align-content: flex-start;
 }
 
-.item {
-	width: 100px;
-	height: 100px;
-	margin: 5px;
-	background: #baa690;
-}
-
-#title {
-	font-weight: bold;
-	margin: 5px;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
-}
-
-#body {
-	margin: 5px;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
-}
-
-#button {
-	margin: 15px;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
-}
-
-/* SEARCH BAR -- OLD*/
-
-.searchContainer {
-	display: flex;
-	margin: 5px;
-	justify-content: center;
-	align-items: center;
-}
-
-.searchInput {
-	margin: 5%;
-	padding: 5%;
-	border-radius: 100px;
-	font-size: 1.25rem;
-	margin-left: 5%;
-	flex: 70%;
-}
-
-#searchIcon {
-	margin: 35px;
-	height: 50px;
-	width: 50px;
-	padding: 10px;
-	place-items: center;
-}
 
 /* WRITE REVIEW PAGE */
 
-.reviewStyling {
+/* .reviewStyling {
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
 	padding: 10px;
@@ -231,10 +179,6 @@ h1 {
 
 .selectLabel {
 	margin-right: 16px;
-}
-
-.reviewButtons {
-	padding: 10px;
 }
 
 .writeReview {
@@ -253,4 +197,4 @@ textarea {
 	margin: 10px;
 	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
-}
+} */
