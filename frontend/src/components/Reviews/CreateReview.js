@@ -11,6 +11,7 @@ import StarRating from "./StarRating";
 const Review =() => {
 
     const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState('');
     const [searchValue, setSearchValue] = useState('');
 
     const getMovieRequest = async (searchValue) => {
@@ -28,6 +29,13 @@ const Review =() => {
         getMovieRequest(searchValue);
     }, [searchValue]);
 
+    const selectReviewMovie = (movie) => {
+        const newSelectedMovie = [...selectedMovie, movie];
+        setSelectedMovie(newSelectedMovie);
+        console.log("hello");
+        console.log(newSelectedMovie);
+    }
+
 
     return (
         
@@ -37,7 +45,7 @@ const Review =() => {
                 <Form.Group className="selectMovie">
                     <Form.Label className="selectLabel">Select a movie to review: </Form.Label>
                     <ReviewSearchBox searchValue={searchValue} setSearchValue={setSearchValue}/>
-                    <InputResults movies = {movies}/>
+                    <InputResults movies = {movies} handleSelectMovieClick={selectReviewMovie} />
                 </Form.Group> 
 
                 <Form.Group className="selectMovie" style={{ dislay: 'flex' }}>
