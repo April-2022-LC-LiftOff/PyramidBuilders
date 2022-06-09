@@ -1,5 +1,6 @@
 package org.launchcode.backend.controllers;
 
+import org.launchcode.backend.model.Ratings;
 import org.launchcode.backend.model.Review;
 import org.launchcode.backend.model.ReviewForm;
 import org.launchcode.backend.services.ReviewService;
@@ -32,6 +33,11 @@ public class ReviewController {
     @GetMapping("/getAll")
     public ArrayList<Review> getAllReviewsByMovieId (@RequestParam String movieId) throws InterruptedException, ExecutionException {
         return reviewService.getReviewByMovieId(movieId);
+    }
+
+    @GetMapping("/getAvgRating")
+    public Ratings getAvgRatingByMovieId(@RequestParam String movieId) throws InterruptedException, ExecutionException{
+        return reviewService.getAverageStarsByMovieId(movieId);
     }
 
     @GetMapping("/getByUser")
