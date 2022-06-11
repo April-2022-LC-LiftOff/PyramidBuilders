@@ -4,7 +4,7 @@ import Movie from './Movie';
 
 function FeaturedList() {
 
-    const featuredApi = "http://www.omdbapi.com/?apikey=84a99a76&s=hack";
+    const featuredApi = "http://www.omdbapi.com/?apikey=84a99a76&type=movie&s=pyramid";
 
     const [movies, setMovies] = useState([]);
 

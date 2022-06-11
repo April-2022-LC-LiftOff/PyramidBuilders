@@ -3,7 +3,6 @@ import React from 'react';
 const InputResults = (props) => {
 
     return (
-        
 
         <button onClick={() => props.handleSelectMovieClick}>
             {props.movies.map((movie, index)=> (
