@@ -2,20 +2,46 @@ import React, { Component } from "react";
 import './Viewer.css';
 import StarRatingNew from "./StarRatingNew";
 import ReviewSpots from "./ReviewSpot";
+import { useState } from "react";
+import { useEffect } from "react";
+import useQuery from "../contentPages/shared/useQuery";
 
 const Viewer = (props) => {
-    
-    const url = "http://localhost:8080/api/review/getAll?movieId=MOVIEID"
 
-    var requestOptions = {
+    const [movieData, setMovieData] = useState({});
+    const [reviewsData, setReviewsByMovie ] = useState({});
+    const query = useQuery();
+    const movieId = query.get("movieId")
+
+    useEffect(()=>{
+        getMovieData()
+    },[])
+    useEffect(()=>{
+        getMovieReviewsByID()
+    }, []);
+    
+    const ReviewPullApiUrl = "http://localhost:8080/api/review/getAll?movieId=" + movieId
+    const movieAPIPull = "http://www.omdbapi.com/?apikey=84a99a76&i=" + movieId
+
+    const requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
-      
-      fetch(url, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+
+      const getMovieData = async()=>{
+      await fetch(movieAPIPull, requestOptions)
+      .then(response => response.json())
+      .then((result) => {setMovieData(result)
+    console.log(result)})
+      .catch(error => console.log('error', error));
+    }
+      const getMovieReviewsByID= async()=>{
+      await fetch(ReviewPullApiUrl, requestOptions)
+        .then(response => response.json())
+        .then((result) => {setReviewsByMovie(result)}
+        )
         .catch(error => console.log('error', error));
+      }
       
     const {movie} = props;
       
@@ -26,17 +52,16 @@ const Viewer = (props) => {
                         <div className="Title">
                             <h1>movie title</h1>
                         </div>
-                        <img class ="poster" src="https://preview.redd.it/0gqk4626e7771.jpg?width=640&crop=smart&auto=webp&s=60254d5149c07886fc63a617759a406e08380618" alt="titane_poster"/>
+                        <img class ="poster" src={movieData.Poster} alt="titane_poster"/>
                     </div>
                     <div class="Info">
                     <div class="Info-text">
                         <h1>Information</h1>
-                            <h3>ID: </h3>
-                            <h3>Title:</h3>
-                            <h3>Type:</h3>
-                            <h3>Year of Release:</h3>
+                            <h3>Title: {movieData.Title}</h3>
+                            <h3>Type: {movieData.Type}</h3>
+                            <h3>Year of Release: {movieData.Year}</h3>
                             <h3>Average Rating:</h3>
-                            <h3>Plot Synopsis: A woman with a titanium plate fitted in her head and murderous intent on her mind embarks on a bizarre journey of identity and unconditional love when she's forced to go on the run.</h3>
+                            <h3>Plot Synopsis: {movieData.Plot}</h3>
                     </div> 
                     </div>
                         <div className="Write">
@@ -64,7 +89,7 @@ const Viewer = (props) => {
                         <div className="Reviews">
                             <h1>Reviews</h1>
                             <div className="list">
-                                <ReviewSpots/>
+                                 <ReviewSpots reviewData= {reviewsData}/>
                             </div>
                         </div>
                     </div>
