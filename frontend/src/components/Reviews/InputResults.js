@@ -1,8 +1,29 @@
 import React from 'react';
-import ReviewSearchBox from "./ReviewSearchBox";
-import SelectMovie from "./SelectMovie";
 
 const InputResults = (props) => {
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState('');
+    const [searchValue, setSearchValue] = useState('');
+
+    const getMovieRequest = async (searchValue) => {
+        const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=84a99a76`
+
+        const response = await fetch(url);
+        const responseJson = await response.json();
+
+        if (responseJson.Search) {
+        setMovies(responseJson.Search);
+        }
+    };
+
+    useEffect(()=>{
+        getMovieRequest(searchValue);
+    }, [searchValue]);
+
+    const selectReviewMovie = (movie) => {
+        const newSelectedMovie = [...selectedMovie, movie];
+        setSelectedMovie(newSelectedMovie);
+    }
 
     return (
 

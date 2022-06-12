@@ -1,9 +1,5 @@
 import React from 'react';
 
-import SelectMovie from "./SelectMovie";
-import InputResults from "./InputResults";
-
-
 const ReviewSearchBox = (props) => {
     return (
         <div >
