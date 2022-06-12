@@ -116,9 +116,12 @@ import React, { Component } from "react";
 import StarRating from "./StarRating";
 import "./ReviewPageCSS.css";
 
+import SelectMovie from "./SelectMovie";
 
 import { useNavigate } from 'react-router-dom';  
 import { Star } from "react-bootstrap-icons";
+import ReviewSearchBox from "./ReviewSearchBox";
+import InputResults from "./InputResults";
 
 export default class Review extends Component {
     handleSubmit = async (e) =>{
@@ -129,7 +132,7 @@ export default class Review extends Component {
             rating: this.rating,
             reviewText: this.reviewText,
             title: this.title,
-            userUID: this.userId
+            userUID: this.props.user.userID
         }
 
         const url = "http://localhost:8080/api/review/create"
@@ -149,13 +152,40 @@ export default class Review extends Component {
 
             localStorage.setItem("token", token);  
 
-            // window.location.replace('/profile')
+            window.location.replace('/profile')
            
         } catch (err){
             console.log(err.message)
         }
             
     }
+
+
+
+        // const [movies, setMovies] = useState([]);
+        // const [selectedMovie, setSelectedMovie] = useState('');
+        // const [searchValue, setSearchValue] = useState('');
+    
+        // const getMovieRequest = async (searchValue) => {
+        //     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=84a99a76`
+    
+        //     const response = await fetch(url);
+        //     const responseJson = await response.json();
+    
+        //     if (responseJson.Search) {
+        //     setMovies(responseJson.Search);
+        //     }
+        // };
+    
+        // useEffect(()=>{
+        //     getMovieRequest(searchValue);
+        // }, [searchValue]);
+    
+        // const selectReviewMovie = (movie) => {
+        //     const newSelectedMovie = [...selectedMovie, movie];
+        //     setSelectedMovie(newSelectedMovie);
+        // }
+
         
     render() {
         return (  
@@ -163,11 +193,16 @@ export default class Review extends Component {
             <div className="header container"> Write a review </div>
                        
             <form className="FormContainer" >
-                    <input type="text" name="movieId" onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/>
+                    <input type="text" name="movieId"  onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/>
+                    
+                    {/* <ReviewSearchBox searchValue={searchValue} setSearchValue={setSearchValue}/> */}
+                    {/* <InputResults movies = {movies} handleSelectMovieClick={selectReviewMovie} name="movieId" /> */}
+                    
                     <input type="text" name="title" onChange = {(e) => this.title = e.target.value} placeholder="Give your review a title" required/>
 
                     <div>Your rating: </div>
-                    <StarRating type="rating" name="rating" onChange = {(e) => this.rating = e.target.value}  />
+                    <StarRating name="rating" value={StarRating.rating} onChange = {(e) => this.rating = e.target.value} /> 
+                
                     
                     <input type="text" name="reviewText" onChange = {(e) => this.reviewText = e.target.value}className="Input password" placeholder="Write your review here" required/>
                     

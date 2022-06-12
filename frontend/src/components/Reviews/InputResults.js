@@ -1,4 +1,6 @@
 import React from 'react';
+import ReviewSearchBox from "./ReviewSearchBox";
+import SelectMovie from "./SelectMovie";
 
 const InputResults = (props) => {
 
