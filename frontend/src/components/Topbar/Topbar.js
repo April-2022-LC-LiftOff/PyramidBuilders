@@ -17,7 +17,7 @@ export default class Topbar extends Component {
           return (
             <li
               key={val.title}
-              className="row"
+              className="top-bar-login sidebar_li"
               id={window.location.pathName == val.link ? "active" : ""}
               onClick={()=> {this.logout()}
               //   {window.location.pathname = val.link;
