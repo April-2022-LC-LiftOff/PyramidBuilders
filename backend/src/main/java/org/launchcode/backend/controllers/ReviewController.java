@@ -36,7 +36,7 @@ public class ReviewController {
     }
 
     @GetMapping("/getAvgRating")
-    public Ratings getAvgRatingByMovieId(@RequestParam String movieId) throws InterruptedException, ExecutionException{
+    public int getAvgRatingByMovieId(@RequestParam String movieId) throws InterruptedException, ExecutionException{
         return reviewService.getAverageStarsByMovieId(movieId);
     }
 
