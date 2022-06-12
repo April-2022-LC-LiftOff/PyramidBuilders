@@ -3,6 +3,8 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Star, StarFill } from "react-bootstrap-icons";
 import EditButton from "./shared/editButton.js";
 import { SocialIcon } from "react-social-icons";
+//import StarRating from "../Reviews../StarRating.js";
+import OMDBapi from "../api/OMDBapi";
 import profilePic from "../../assets/profile.png";
 import reviewOne from "../../assets/Ironman.jpeg";
 import reviewTwo from "../../assets/thor.jpeg";
