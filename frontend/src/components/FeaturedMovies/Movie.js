@@ -9,6 +9,7 @@ const Movie = ({Title, Poster}) => (
     <Card className="card" style={{ width: '18rem' }} className="box">
         <Card.Img className="image" src={Poster}></Card.Img>
         <Card.Title id="title">{Title}</Card.Title>
+
     </Card>
 
 
