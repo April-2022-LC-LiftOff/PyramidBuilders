@@ -13,7 +13,7 @@ public class PrivateEndpoint {
 
     @GetMapping("user-details")
     public ResponseEntity<User> getUserInfo(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(user);
+        return (ResponseEntity<User>) ResponseEntity.ok();
     }
 
 }

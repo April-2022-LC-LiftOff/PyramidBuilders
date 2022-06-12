@@ -16,10 +16,6 @@ export const GuestTopbarData = [
 
 export const UserTopbarData = [
 	{
-		title: "Profile",
-		link: "/profile",
-	},
-	{
 		title: "Logout",
 		link: "/",
 	},

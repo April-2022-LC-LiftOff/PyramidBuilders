@@ -32,6 +32,7 @@ class App extends Component {
 		axios.get("http://localhost:8080/api/user/user", auth).then((user) => {
 			this.setState({
 				user: user.data,
+				auth: auth
 			});
 		});
 	}
@@ -42,7 +43,7 @@ class App extends Component {
 				<Router>
 					<Topbar user={this.state.user} />
 					<div className="app-container">
-						<Sidebar />
+						<Sidebar user={this.state.user}/>
 						<div className="page-container">
 							<Switch>
 								<Route
