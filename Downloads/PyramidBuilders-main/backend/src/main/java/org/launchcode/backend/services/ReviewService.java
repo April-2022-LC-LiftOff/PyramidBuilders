@@ -3,6 +3,7 @@ package org.launchcode.backend.services;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import org.launchcode.backend.model.Ratings;
 import org.launchcode.backend.model.Review;
 import org.launchcode.backend.model.ReviewForm;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,28 @@ public class ReviewService {
         }
 
         return list;
+    }
+
+    public int getAverageStarsByMovieId(String movieId) throws ExecutionException, InterruptedException {
+        Review[] reviews = getReviewByMovieId(movieId).toArray(new Review[0]);
+        int rating = 0;
+        for (Review review : reviews){
+            rating += review.getRating();
+        }
+        int reviewNum = reviews.length;
+        int avgRating = rating/reviewNum;
+
+        if(avgRating > 4.5){
+            return 5;
+        } else if (avgRating < 4.5 && avgRating > 3.5) {
+            return 4;
+        } else if (avgRating < 3.5 && avgRating > 2.5) {
+            return 3;
+        } else if (avgRating < 2.5 && avgRating > 1.5) {
+            return 2;
+        }else {
+            return 1;
+        }
     }
 
     public ArrayList<Review> getReviewByUserId(String userUID) throws ExecutionException, InterruptedException {

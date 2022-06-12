@@ -19,6 +19,7 @@ import ScrollButton from "./components/Footer/ScrollButton";
 import { useHistory, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Welcome from "./components/contentPages/Welcome";
+import Viewer from "./components/View/Viewer";
 
 class App extends Component {
 	state = {};
@@ -32,6 +33,7 @@ class App extends Component {
 		axios.get("http://localhost:8080/api/user/user", auth).then((user) => {
 			this.setState({
 				user: user.data,
+				auth: auth
 			});
 		});
 	}
@@ -42,7 +44,7 @@ class App extends Component {
 				<Router>
 					<Topbar user={this.state.user} />
 					<div className="app-container">
-						<Sidebar />
+						<Sidebar user={this.state.user}/>
 						<div className="page-container">
 							<Switch>
 								<Route
@@ -77,6 +79,9 @@ class App extends Component {
 										<Welcome user={this.state.user} />
 									)}
 								/>
+								<Route
+									path="/film"
+									exact component={Viewer}/>
 							</Switch>
 						</div>
 					</div>

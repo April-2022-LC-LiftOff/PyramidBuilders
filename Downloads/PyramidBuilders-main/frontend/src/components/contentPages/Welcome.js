@@ -9,7 +9,7 @@ export default class Welcome extends Component {
                <h2>Welcome {this.props.user.username}!</h2>
                <p>We're glad you're here. Let's get started...<br>
             </br><a href='/review'>Write your first review</a>
-            <br/><a href='/profile/edit'>Create your profile</a></p>
+            <br/><a href='/profile'>Create your profile</a></p>
             </div>
             
         )

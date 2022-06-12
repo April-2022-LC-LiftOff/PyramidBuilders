@@ -9,6 +9,6 @@ public class ReviewForm {
     private String title;
     private String userUID;
     private String movieId;
-    private Ratings rating;
+    private int rating;
     private String reviewText;
 }

@@ -34,7 +34,6 @@ public class UserService {
         //Creates UserRecord object unique to Firebase's built in User Database
         UserRecord.CreateRequest register = new UserRecord.CreateRequest()
                 .setEmail(user.getEmail())
-                .setPhotoUrl("../../assets/profile.png")
                 .setEmailVerified(false)
                 .setPassword(user.getPassword())
                 .setDisplayName(user.getUsername())
