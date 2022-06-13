@@ -19,6 +19,7 @@ import ScrollButton from "./components/Footer/ScrollButton";
 import { useHistory, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Welcome from "./components/contentPages/Welcome";
+import Viewer from "./components/View/Viewer";
 
 class App extends Component {
 	state = {};
@@ -78,6 +79,9 @@ class App extends Component {
 										<Welcome user={this.state.user} />
 									)}
 								/>
+								<Route
+									path="/film"
+									exact component={Viewer}/>
 							</Switch>
 						</div>
 					</div>

@@ -1,0 +1,199 @@
+.center {
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	-webkit-transform: translate(-50%, -50%);
+  }
+
+.profile-pic {
+	bottom: 50%;
+}
+  .card {
+	width: 900px;
+	height: 250px;
+	background-color: #fff;
+	box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+	border-radius: 6px;
+	overflow: scroll;
+	position: relative;
+	margin: 1.5rem;
+  }
+  
+  .card .additional {
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	background: #b30e5d;
+	transition: width 0.4s;
+	overflow: hidden;
+	z-index: 2;
+  } 
+  
+  h2{
+	  color: white;
+  }
+  .card:hover .additional {
+	width: 90%;
+	border-radius: 0 0px 0px 0;
+  }
+  .card .additional .user-card {
+	width: 150px;
+	height: 100%;
+	position: relative;
+	float: left;
+  }
+
+  .card .additional .user-card::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 10%;
+	right: -2px;
+	height: 80%;
+	border-left: 2px solid rgba(0,0,0,0.025);
+  }
+  
+  .card .additional .user-card .level,
+  .card .additional .user-card .points {
+	top: 15%;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 0.75em;
+	font-weight: bold;
+	background: rgba(0,0,0,0.15);
+	padding: 0.125rem 0.75rem;
+	border-radius: 100px;
+	white-space: nowrap;
+  }
+  
+  .card .additional .user-card .points {
+	top: 85%;
+  }
+  
+  .card .additional .user-card svg {
+	top: 50%;
+  }
+  
+  .card .additional .more-info {
+	width: 300px;
+	float: left;
+	position: absolute;
+	left: 150px;
+	height: 100%;
+  }
+  
+  .card .additional .more-info h1 {
+	color: #fff;
+	margin-bottom: 0;
+	margin-left: 10px;
+	text-decoration: underline;
+  }
+    
+  .card .additional .coords {
+	margin: 0 1rem;
+	color: #fff;
+	font-size: 1rem;
+  }
+  
+  .text{
+	  width: 80%;
+  }
+  
+  .handlebar{
+	background-color: rgba(128, 128, 128, 0.466);
+	width: 10%;
+	height: 100%;
+	position: relative;
+	float: right;
+	margin-top: 0px;
+	z-index: 10;
+}
+  .card .additional .coords span + span {
+	float: right;
+  }
+
+  .img{
+	  height: 25px;
+  }
+  .newimg{
+	  height: 30px;
+	  padding-top: 20px;
+  }
+  .rowly{
+	margin-left:auto;
+	margin-right:auto;
+	width: 100%;
+	text-align: center;
+  }
+  .card .additional .stats {
+	font-size: 2rem;
+	display: flex;
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	right: 1rem;
+	top: auto;
+	color: #fff;
+  }
+  
+  .card .additional .stats > div {
+	flex: 1;
+	text-align: center;
+  }
+  
+  .card .additional .stats i {
+	display: block;
+  }
+  
+  .card .additional .stats div.title {
+	font-size: 0.75rem;
+	font-weight: bold;
+	text-transform: uppercase;
+  }
+  
+  .card .additional .stats div.value {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 1.5rem;
+  }
+  
+  .card .additional .stats div.value.infinity {
+	font-size: 2.5rem;
+  }
+  
+  .card .general {
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0px;
+	z-index: 1;
+	box-sizing: border-box;
+	
+  }
+
+  .like {
+	  height: 30px;
+	  width: 30px;
+	  padding-top: 15px;
+	  padding-bottom: 6px;
+  }
+
+  .RSh1{
+	margin-bottom: 0px;
+	text-align: left;
+
+  }
+  .words {
+	margin-left: 160px;
+	margin-right: 100px;
+	padding-right: 0px;
+  }
+  .Tilt {
+	width: 80%;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-left: 160px;
+	text-align: left;
+  }
