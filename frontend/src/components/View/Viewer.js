@@ -44,6 +44,58 @@ const Viewer = (props) => {
       }
       
     const {movie} = props;
+
+    const [rating, setRating] = useState('')
+    const handleRatingChange = e => {
+        setRating(e.target.value)
+    }
+
+    const [reviewText, setReviewText] = useState('')
+    const handleReviewTextChange = e => {
+        setReviewText(e.target.value)
+    }
+
+    const [title, setTitle] = useState('')
+    const handleTitleChange = e => {
+        setTitle(e.target.value)
+    }
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+
+        const data = {
+            movieId: movieId,
+            rating: rating,
+            reviewText: reviewText,
+            title: title,
+            userUID: props.user.userID
+        }
+
+        const url = "http://localhost:8080/api/review/create"
+
+        try{ 
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Accept' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const responseData = await response.json();
+
+            let token = responseData.token
+
+            localStorage.setItem("token", token);  
+
+            window.location.replace('/profile')
+           
+        } catch (err){
+            console.log(err.message)
+        }
+            
+    }
+
       
         return (
             <div>
@@ -71,17 +123,43 @@ const Viewer = (props) => {
                                       <h1 className="Titular">Review</h1>
                                   </div>
                                   <h2><label for="review_title">Review Title: </label></h2>
-                                  <input className="inputNew" type="text" id="review_title" name="review_title"></input>
+                                  <input className="inputNew" type="text" id="review_title" name="review_title" onChange = {handleTitleChange}></input>
+                                  
+                                 
+        
+                                  
+                                  
                                   <h2><label for="stars">Rate: </label></h2>
                                   <div className="staar">
-                                       <StarRatingNew/>
-                                  </div>
+                                    <select onChange={handleRatingChange}>
+                                            <option value={1}>
+                                                <span className="star">&#9733;</span>
+                                            </option>
+                                            <option value={2}>
+                                                <span className="star">&#9733; &#9733;</span>                        
+                                            </option>
+                                            <option value={3}>
+                                                <span className="star">&#9733; &#9733; &#9733;</span>
+                                            </option>
+                                            <option value={4}>
+                                                <span className="star">&#9733; &#9733; &#9733; &#9733;</span>
+                                            </option>
+                                            <option value={5}>
+                                                <span className="star">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                                            </option>
+                                        </select>
+                                        </div>
+
+
+
+
+
                                   <h2><label for="review">Review: </label></h2>
                                  <div className="textarea">
-                                        <textarea className="review" id="review" name="review" rows="10" cols="100"/> 
+                                        <textarea onChange = {handleReviewTextChange} className="review" id="review" name="review" rows="10" cols="100"/> 
                                    </div>
                                    <div className="button_local">
-                                        <input className="button_locale" type="submit" value="Submit"/>
+                                        <input onClick={handleSubmit} className="button_locale" type="submit" value="Submit"/>
                                   </div>
                               </form> 
                             </div>

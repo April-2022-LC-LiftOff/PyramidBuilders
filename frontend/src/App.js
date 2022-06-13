@@ -81,7 +81,10 @@ class App extends Component {
 								/>
 								<Route
 									path="/film"
-									exact component={Viewer}/>
+									exact 
+									component={() => (
+										<Viewer user={this.state.user} />
+									)}/>
 							</Switch>
 						</div>
 					</div>
