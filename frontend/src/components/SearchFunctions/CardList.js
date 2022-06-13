@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import "./SearchMovies.css";
+import "../fonts/stylesheet.css";
 
 
 function CardList( {results}) {

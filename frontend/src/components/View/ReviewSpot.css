@@ -8,7 +8,7 @@
 .profile-pic {
 	bottom: 50%;
 }
-  .card {
+  .cardly {
 	width: 900px;
 	height: 250px;
 	background-color: #fff;
@@ -19,11 +19,11 @@
 	margin: 1.5rem;
   }
   
-  .card .additional {
+  .cardly .additional {
 	position: absolute;
 	width: 150px;
 	height: 100%;
-	background: #b30e5d;
+	background: rgba(100,0,128,0.5242296747800683);
 	transition: width 0.4s;
 	overflow: hidden;
 	z-index: 2;
@@ -32,18 +32,18 @@
   h2{
 	  color: white;
   }
-  .card:hover .additional {
+  .cardly:hover .additional {
 	width: 90%;
 	border-radius: 0 0px 0px 0;
   }
-  .card .additional .user-card {
+  .cardly .additional .user-card {
 	width: 150px;
 	height: 100%;
 	position: relative;
 	float: left;
   }
 
-  .card .additional .user-card::after {
+  .cardly .additional .user-card::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -53,8 +53,8 @@
 	border-left: 2px solid rgba(0,0,0,0.025);
   }
   
-  .card .additional .user-card .level,
-  .card .additional .user-card .points {
+  .cardly .additional .user-card .level,
+  .cardly .additional .user-card .points {
 	top: 15%;
 	color: #fff;
 	text-transform: uppercase;
@@ -66,15 +66,15 @@
 	white-space: nowrap;
   }
   
-  .card .additional .user-card .points {
+  .cardly .additional .user-card .points {
 	top: 85%;
   }
   
-  .card .additional .user-card svg {
+  .cardly .additional .user-card svg {
 	top: 50%;
   }
   
-  .card .additional .more-info {
+  .cardly .additional .more-info {
 	width: 300px;
 	float: left;
 	position: absolute;
@@ -82,14 +82,14 @@
 	height: 100%;
   }
   
-  .card .additional .more-info h1 {
+  .cardly .additional .more-info h1 {
 	color: #fff;
 	margin-bottom: 0;
 	margin-left: 10px;
 	text-decoration: underline;
   }
     
-  .card .additional .coords {
+  .cardly .additional .coords {
 	margin: 0 1rem;
 	color: #fff;
 	font-size: 1rem;
@@ -108,7 +108,7 @@
 	margin-top: 0px;
 	z-index: 10;
 }
-  .card .additional .coords span + span {
+  .cardly .additional .coords span + span {
 	float: right;
   }
 
@@ -125,7 +125,7 @@
 	width: 100%;
 	text-align: center;
   }
-  .card .additional .stats {
+  .cardly .additional .stats {
 	font-size: 2rem;
 	display: flex;
 	position: absolute;
@@ -136,32 +136,32 @@
 	color: #fff;
   }
   
-  .card .additional .stats > div {
+  .cardly .additional .stats > div {
 	flex: 1;
 	text-align: center;
   }
   
-  .card .additional .stats i {
+  .cardly .additional .stats i {
 	display: block;
   }
   
-  .card .additional .stats div.title {
+  .cardly .additional .stats div.title {
 	font-size: 0.75rem;
 	font-weight: bold;
 	text-transform: uppercase;
   }
   
-  .card .additional .stats div.value {
+  .cardly .additional .stats div.value {
 	font-size: 1.5rem;
 	font-weight: bold;
 	line-height: 1.5rem;
   }
   
-  .card .additional .stats div.value.infinity {
+  .cardly .additional .stats div.value.infinity {
 	font-size: 2.5rem;
   }
   
-  .card .general {
+  .cardly .general {
 	text-align: left;
 	width: 100%;
 	height: 100%;

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as FaIcons from 'react-icons/fa';
 import './Sidebar.css';
+import logo from '../images/Pyramid.gif';
 
 
 
@@ -10,6 +11,9 @@ function Sidebar(props) {
     return (
         <div className="Sidebar">
           <ul className="sidebar_ul">
+            <div className="sidebar-holder">
+              <img className="logoo" src={logo} alt="loading..." />
+            </div>
             <li className="sidebar_li">
               <div className="sidebar_li">
                 <span className="icon">
@@ -19,6 +23,7 @@ function Sidebar(props) {
                   Home
                 </Link></span>
               </div>
+              <hr></hr>
             </li>
             <li className="sidebar_li">
               <div className="sidebar_li">
@@ -30,16 +35,7 @@ function Sidebar(props) {
                 </Link></span>
               </div>
             </li>
-            <li className="sidebar_li">
-              <div className="sidebar_li">
-                <span className="icon">
-                  <FaIcons.FaComment />
-                </span>
-                <span className="title"><Link to="/review">
-                  Write a Review
-                </Link></span>
-              </div>
-            </li>
+            
           </ul>
         </div>
       )
@@ -48,6 +44,9 @@ function Sidebar(props) {
      return (
       <div className="Sidebar">
         <ul className="sidebar_ul">
+        <div>
+              <img className="logoo" src={logo} alt="loading..." />
+            </div>
           <li className="sidebar_li">
             <div className="sidebar_li">
               <span className="icon">
@@ -55,16 +54,6 @@ function Sidebar(props) {
               </span>
               <span className="title"><Link to="/">
                 Home
-              </Link></span>
-            </div>
-          </li>
-          <li className="sidebar_li">
-            <div className="sidebar_li">
-              <span className="icon">
-                <FaIcons.FaComment />
-              </span>
-              <span className="title"><Link to="/login">
-                Write a Review
               </Link></span>
             </div>
           </li>

@@ -1,8 +1,10 @@
+
+
 .card {
-    /* background-color: #b8b0b4; */
+    background-color: #4949498e;
     border-radius: 10px 10px 10px 10px;
-    overflow: scroll;
-    height: 275px;
+    overflow: hidden;
+    height: 300px;
     /* max-height: 35vh; */
     -webkit-box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
     box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
@@ -34,14 +36,15 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: white;
 
 }
 
 .item {
     display: flex;
-	height: 250px;
+	height: 300px;
     margin-left: auto;
     margin-right: auto;
     margin: 25%;
@@ -52,10 +55,10 @@
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     height: 50px;
+    font-weight: 500;
 }
 
 #searchBar {
@@ -68,7 +71,16 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.5rem;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+    font-size: 2.5rem;
+    font-family: 'metropolis1920regular';
+    font-weight: 500;
+    color: rgb(214, 0, 0);
+}
+.little{
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
