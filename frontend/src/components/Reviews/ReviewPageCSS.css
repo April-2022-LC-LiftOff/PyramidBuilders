@@ -18,3 +18,10 @@
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 		"Lucida Sans", Arial, sans-serif;
 }
+.section {
+  margin-top: 15px;
+}
+
+.main {
+  font-weight: bold;
+}

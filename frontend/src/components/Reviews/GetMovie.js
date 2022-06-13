@@ -34,7 +34,7 @@ const GetMovie = (props) => {
 
         <select> {movies.map((movie, index)=> (
             
-                <option value={movie.imdbID}> {movie.Title} </option>
+                <option key={movie.imdbID} value={movie.imdbID}> {movie.Title} </option>
     
             ))}
             

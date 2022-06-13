@@ -45,19 +45,56 @@ export default class Review extends Component {
     render() {
         return (  
             <div className="container">
-                <div className="header container"> Write a review </div>
+                <div className="header"> Write a review </div>
                 
                 <form className="FormContainer" >
-                    <input type="text" name="movieId"  onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/>
 
-                     <GetMovie />                   
+                    {/* <input type="text" name="movieId"  onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/> */}
+           
+
+                    <div className="section">
+                    <div className="main">Select a movie to review: </div>
+                    <GetMovie onChange = {(e) => this.movieId = e.target.imdbID}/>                   
+                    </div>
+
+                    <div className="section">
+                    <div className="main">Review title: </div>
                     <input type="text" name="title" onChange = {(e) => this.title = e.target.value} placeholder="Give your review a title" required/>
+                    </div>
 
-                    <div>Your rating: </div>
-                    <StarRating name="rating" value={StarRating.rating} onChange = {(e) => this.rating = e.target.value} /> 
-                
-                    <input type="text" name="reviewText" onChange = {(e) => this.reviewText = e.target.value}className="Input password" placeholder="Write your review here" required/>
+                    <div className="section">
+                    <div className="main">Your rating: </div>
+                    <select onChange = {(e) => this.rating = e.target.value}>
+                        <option value={1}>
+                            <span className="star">&#9733;</span>
+                        </option>
+                        <option value={2}>
+                            <span className="star">&#9733; &#9733;</span>                        
+                        </option>
+                        <option value={3}>
+                            <span className="star">&#9733; &#9733; &#9733;</span>
+                        </option>
+                        <option value={4}>
+                            <span className="star">&#9733; &#9733; &#9733; &#9733;</span>
+                        </option>
+                        <option value={5}>
+                            <span className="star">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        </option>
+                    </select>
+                    {/* <StarRating name="rating" 
+                    value={4}
+                    // value={StarRating.rating} 
+                    // onChange = {(e) => this.rating = e.target.value} 
+                    // onChange = {(e) => this.rating = e.target.imdbID}
+                    />  */}
                     
+                    </div>
+
+                    <div className="section">
+                    <div className="main">Your review: </div>
+                    <input type="text" name="reviewText" onChange = {(e) => this.reviewText = e.target.value}className="Input password" placeholder="Write your review here" required/>
+                    </div>
+
                     <button type="submit" className="SubmitButton" onClick={this.handleSubmit}>Save Review</button>
                 </form>
             </div>
