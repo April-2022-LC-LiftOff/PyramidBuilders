@@ -9,7 +9,7 @@
     background-image: url("../contentPages/images/background2.png");
     background-repeat: repeat-y;
     background-size: 1200px;
-    background-color: rgba(183,72,175,.5);
+    background-color: rgba(222, 0, 0, 0.541);
     background-blend-mode: multiply;
 }
 .Box {
@@ -19,8 +19,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 19px;
-    background: rgb(183,72,175);
-    background: linear-gradient(50deg, rgba(183,72,175,1) 0%, rgba(159,196,238,1) 100%);
+    background: rgb(222,0,0);
+    background: linear-gradient(90deg, rgba(222,0,0,1) 0%, rgba(0,163,210,1) 100%);
     box-shadow: 0 0 2px rgb(78, 76, 78);
     position: relative;
     overflow: hidden;
@@ -37,8 +37,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 50%;
-    background: rgb(84,12,80);
-    background: linear-gradient(58deg, rgba(84,12,80,1) 0%, rgba(159,35,152,1) 100%);
+    background: rgb(222,0,0);
+background: linear-gradient(90deg, rgba(222,0,0,1) 0%, rgba(0,163,210,1) 100%);
     top: -290px;
     left: -70px;
     transform: rotate(60deg)
@@ -132,7 +132,7 @@ h1 {
 }
 .Input:focus {
     outline: none;
-    border-bottom: 2px solid rgb(84,12,80);
+    border-bottom: 2px solid rgb(222,0,0);
 }
 
 .Input:not(Input:last-of-type){
@@ -157,8 +157,8 @@ h1 {
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
     transition: all, 240ms ease-in-out;
-    background: rgb(84,12,80);
-    background: linear-gradient(58deg, rgba(84,12,80,1) 0%, rgba(159,35,152,1) 100%); 
+    background: rgb(222,0,0);
+background: linear-gradient(90deg, rgba(222,0,0,1) 0%, rgba(0,163,210,1) 100%);
 }
 .SubmitButton:hover{
     filter: brightness(1.03);
@@ -167,3 +167,6 @@ h1 {
 .Marginer{
     margin: 1em;
 }
+/* 
+background: rgb(222,0,0);
+background: linear-gradient(90deg, rgba(222,0,0,1) 0%, rgba(0,163,210,1) 100%); */

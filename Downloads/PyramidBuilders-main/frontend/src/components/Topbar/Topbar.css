@@ -1,9 +1,13 @@
 @import "../../App.css";
 
 .topbar {
-	height: var(--nav-size);
-	background-color: #432232;
+	font-family: 'Montserrat', sans-serif;
+	height: 8%;
 	padding: 0 1rem;
+	background: rgb(222,0,0);
+	background: linear-gradient(90deg, rgba(222,0,0,1) 0%, rgba(0,163,210,1) 100%);
+	box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.35);
+	z-axis: 10;
 }
 
 .topbar-nav {

@@ -3,7 +3,6 @@ package org.launchcode.backend.services;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
-import org.launchcode.backend.model.Ratings;
 import org.launchcode.backend.model.Review;
 import org.launchcode.backend.model.ReviewForm;
 import org.springframework.stereotype.Service;
