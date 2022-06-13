@@ -5,13 +5,16 @@ import ReviewSpots from "./ReviewSpot";
 import { useState } from "react";
 import { useEffect } from "react";
 import useQuery from "../contentPages/shared/useQuery";
+import showStarRating from "./showStarRating";
 
 const Viewer = (props) => {
 
     const [movieData, setMovieData] = useState({});
     const [reviewsData, setReviewsByMovie ] = useState({});
+    const [averageRating, setAverageRating] = useState('');
     const query = useQuery();
     const movieId = query.get("movieId")
+    const pageLink = '/film/?movieId=' + movieId;
 
     useEffect(()=>{
         getMovieData()
@@ -19,9 +22,13 @@ const Viewer = (props) => {
     useEffect(()=>{
         getMovieReviewsByID()
     }, []);
+    useEffect(()=>{
+        getAverageRating()
+    }, [])
     
     const ReviewPullApiUrl = "http://localhost:8080/api/review/getAll?movieId=" + movieId
     const movieAPIPull = "http://www.omdbapi.com/?apikey=84a99a76&i=" + movieId
+    const ratingPull = "http://localhost:8080/api/review/getAvgRating?movieId=" + movieId
 
     const requestOptions = {
         method: 'GET',
@@ -40,6 +47,14 @@ const Viewer = (props) => {
         .then(response => response.json())
         .then((result) => {setReviewsByMovie(result)}
         )
+        .catch(error => console.log('error', error));
+      }
+
+      const getAverageRating = async()=>{
+        await fetch(ratingPull, requestOptions)
+        .then(response => response.text())
+        .then(result => {setAverageRating(result)
+        console.log(result)})
         .catch(error => console.log('error', error));
       }
       
@@ -82,13 +97,7 @@ const Viewer = (props) => {
                 },
                 body: JSON.stringify(data)
             });
-            const responseData = await response.json();
-
-            let token = responseData.token
-
-            localStorage.setItem("token", token);  
-
-            window.location.replace('/profile')
+            window.location.replace(pageLink)
            
         } catch (err){
             console.log(err.message)
@@ -112,7 +121,7 @@ const Viewer = (props) => {
                             <h3>Title: {movieData.Title}</h3>
                             <h3>Type: {movieData.Type}</h3>
                             <h3>Year of Release: {movieData.Year}</h3>
-                            <h3>Average Rating:</h3>
+                            <h3>Average Rating: {showStarRating(averageRating.valueOf())}</h3>
                             <h3>Plot Synopsis: {movieData.Plot}</h3>
                     </div> 
                     </div>

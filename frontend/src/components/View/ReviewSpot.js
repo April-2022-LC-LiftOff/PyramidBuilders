@@ -12,6 +12,7 @@ import users from "./images/users.png";
 import star from "./images/star.png";
 import Review from "../Reviews/CreateReview";
 import { useEffect, useState } from "react";
+import showStarRating from "./showStarRating";
 
 
 
@@ -115,7 +116,7 @@ Be the first to Review
       </div>
       <div className="general">
         <div className="Tilt">
-        <h1 className="RSh1">{val.title} ★★★★</h1>
+        <h1 className="RSh1">{val.title} {showStarRating(val.rating)}</h1>
         </div>
         <div className="words">
         <p className="text">
