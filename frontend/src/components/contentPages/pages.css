@@ -158,14 +158,25 @@ h1 {
 .container {
 	display: flex;
 	flex-direction: row;
-	height: 50px;
+	height: 100px;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
 	align-content: flex-start;
 }
 
+.happy{
+	font-family: 'metropolis1920regular';
+}
 
+.bingo{
+	font-family: 'metropolis1920regular';
+	font-size: 2rem;
+	color: rgba(0,163,210,1);
+}
+.searchInput{
+	font-family: 'Montserrat', sans-serif;
+}
 /* WRITE REVIEW PAGE */
 
 /* .reviewStyling {

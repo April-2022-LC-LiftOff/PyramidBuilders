@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 
 import './pages.css';
 import '../SearchFunctions/SearchMovies.css';
+import "../fonts/stylesheet.css";
 
 import CardList from "../SearchFunctions/CardList";
 import SearchBar from "../SearchFunctions/SearchBar";
@@ -37,7 +38,11 @@ function Home(props) {
 				<CardList className="item" results={state.results}/>
 			</div>
 
-			<div className="container" id="category">Featured Movies</div>
+			<div className="container" id="category">
+				<div className="bingo">
+					Featured Movies
+					</div>
+				</div>
 
 			<div className="container"> <FeaturedList className="item" /> </div>
 

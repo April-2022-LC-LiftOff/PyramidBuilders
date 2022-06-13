@@ -3,8 +3,11 @@
 .Sidebar {
 	height: 100%;
 	min-width: 200px;
-	background-color: #432232;
+	background: black;
 	justify-content: center;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+	border-radius: 0px 0px 15px 15px;
 }
 
 .sidebar_ul {
@@ -14,21 +17,20 @@
 }
 
 .sidebar_li {
-	margin-left: 10%;
+	padding-left: 8px;
 	display: flex;
 	color: white;
 	align-items: center;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	font-family: 'Montserrat', sans-serif
 }
 
 .sidebar_li:hover {
 	cursor: pointer;
-	background-color: #1a0d1f;
+	background-color: #2c41a0;
 }
 
 .sidebar_li:active {
-	background-color: #1a0d1f;
+	background-color: #2c41a0;
 }
 
 .icon {
@@ -38,4 +40,18 @@
 
 .title {
 	flex: 70%;
+	text-decoration: none;
+}
+.title:hover{
+	text-decoration: none;
+}
+.logoo{
+	height: 150px;
+	padding-left: 23px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	margin-bottom: 25px;
+}
+.sidebar-holder{
+	text-align: center;
 }
