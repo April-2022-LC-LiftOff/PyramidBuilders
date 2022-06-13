@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-const InputResults = (props) => {
+const GetMovie = (props) => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState('');
     const [searchValue, setSearchValue] = useState('');
@@ -20,23 +20,27 @@ const InputResults = (props) => {
         getMovieRequest(searchValue);
     }, [searchValue]);
 
-    const selectReviewMovie = (movie) => {
-        const newSelectedMovie = [...selectedMovie, movie];
-        setSelectedMovie(newSelectedMovie);
-    }
 
     return (
-
-        <button onClick={() => props.handleSelectMovieClick}>
-            {props.movies.map((movie, index)=> (
-                
+        <div>
             <div>
-                <p> {movie.Title} </p>
+                <input
+                className="form-control"
+                value={props.value}
+                onChange={(e)=> setSearchValue(e.target.value)}
+                placeholder="Type movie name..."
+                ></input>
             </div>
 
-        ))}
-        </button>
-    );
-};
+        <select> {movies.map((movie, index)=> (
+            
+                <option value={movie.imdbID}> {movie.Title} </option>
+    
+            ))}
+            
+        </select>
+</div>
+    ) 
+}
 
-export default InputResults;
+export default GetMovie;
