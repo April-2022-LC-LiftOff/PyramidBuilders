@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useForm} from 'react';
 
 const GetMovie = (props) => {
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState('');
+    // const [movidID, setMovieID] = useState('');
     const [searchValue, setSearchValue] = useState('');
 
     const getMovieRequest = async (searchValue) => {
@@ -20,7 +20,9 @@ const GetMovie = (props) => {
         getMovieRequest(searchValue);
     }, [searchValue]);
 
+    
 
+    
     return (
         <div>
             <div>
@@ -32,7 +34,7 @@ const GetMovie = (props) => {
                 ></input>
             </div>
 
-        <select> {movies.map((movie, index)=> (
+        <select name="movie"> {movies.map((movie, index)=> (
             
                 <option key={movie.imdbID} value={movie.imdbID}> {movie.Title} </option>
     

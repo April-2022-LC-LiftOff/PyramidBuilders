@@ -49,13 +49,16 @@ export default class Review extends Component {
                 
                 <form className="FormContainer" >
 
-                    {/* <input type="text" name="movieId"  onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/> */}
-           
-
                     <div className="section">
+                    <div className="main">Input the IMDB ID of the movie: </div>
+                    <input type="text" name="movieId"  onChange = {(e) => this.movieId = e.target.value}placeholder="Input movie ID" required/>
+                    <div className="subtext"> Find your movie's IMDB ID here </div>
+                    </div>
+
+                    {/* <div className="section">
                     <div className="main">Select a movie to review: </div>
                     <GetMovie onChange = {(e) => this.movieId = e.target.imdbID}/>                   
-                    </div>
+                    </div> */}
 
                     <div className="section">
                     <div className="main">Review title: </div>
@@ -81,12 +84,7 @@ export default class Review extends Component {
                             <span className="star">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
                         </option>
                     </select>
-                    {/* <StarRating name="rating" 
-                    value={4}
-                    // value={StarRating.rating} 
-                    // onChange = {(e) => this.rating = e.target.value} 
-                    // onChange = {(e) => this.rating = e.target.imdbID}
-                    />  */}
+                
                     
                     </div>
 
