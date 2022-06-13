@@ -78,7 +78,6 @@
 .col-review-cards {
 	overflow: auto;
 	max-height: 80vh;
-	margin-top: 24px;
 }
 
 .card-img,

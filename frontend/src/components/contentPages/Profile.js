@@ -130,18 +130,20 @@ export default function Profile(props) {
 					</Card>
 				</Col>
 				<Col lg={4}>
-					<div className="col-review-cards">
-						<h4>My Reviews</h4>
-						<div className="review-list">
-							{props.reviewData ? (
-								<ReviewSpot />
-							) : (
-								<a href="/review">
-									<h5>Write your first review</h5>
-								</a>
-							)}
+					<Card className="reviews-card">
+						<div className="col-review-cards">
+							<h4>My Reviews</h4>
+							<div className="review-list">
+								{props.reviewData ? (
+									<ReviewSpot />
+								) : (
+									<a href="/review">
+										<h5>Write your first review</h5>
+									</a>
+								)}
+							</div>
 						</div>
-					</div>
+					</Card>
 				</Col>
 			</Row>
 		</Container>
