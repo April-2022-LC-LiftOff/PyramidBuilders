@@ -1,41 +1,46 @@
-import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Star, StarFill } from "react-bootstrap-icons";
-import EditButton from "./shared/editButton.js";
-import { SocialIcon } from "react-social-icons";
-//import StarRating from "../Reviews../StarRating.js";
-import OMDBapi from "../api/OMDBapi";
+import React, { useState, useEffect } from "react";
+import {
+	Container,
+	Row,
+	Col,
+	Card,
+	Button,
+	Modal,
+	ModalHeader,
+} from "react-bootstrap";
 import profilePic from "../../assets/profile.png";
-import reviewOne from "../../assets/Ironman.jpeg";
-import reviewTwo from "../../assets/thor.jpeg";
-import reviewThree from "../../assets/moana.jpg";
-import reviewFour from "../../assets/bridget.jpg";
+
 import "./pages.css";
+import { GetProfileData } from "../api/profileService.js";
 
 export default function Profile(props) {
-	const usrName = "John Doe";
-	const usrPword = "••••••••••"; //{usrPword}
-	const usrEmail = "email@email.com";
-	const usrBio =
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+	const [userName, setUserName] = useState("");
+	const [userEmail, setUserEmail] = useState("");
+	const [userBio, setUserBio] = useState("");
+	const [userFriendsList, setUserFriendsList] = useState([]);
+	const [showModal, setShowModal] = useState(false);
 
-	const reviewTitle = "title goes here";
-	function stars() {
-		const reviewStars = 4;
-		if (reviewStars === 0) {
-			(numStars = Star), Star, Star, Star, Star;
-		} else if (reviewStars === 1) {
-			StarFill, Star, Star, Star, Star;
-		} else if (reviewStars === 2) {
-			StarFill, StarFill, Star, Star, Star;
-		} else if (reviewStars === 3) {
-			StarFill, StarFill, StarFill, Star, Star;
-		} else if (reviewStars === 4) {
-			StarFill, StarFill, StarFill, StarFill, Star;
-		} else {
-			StarFill, StarFill, StarFill, StarFill, StarFill;
+	const userId = props.user.userID;
+
+	const handleClose = () => setShowModal(false);
+	const handleShow = () => setShowModal(true);
+	// const editModal = () => {};
+
+	useEffect(() => {
+		if (userId && userId !== null) {
+			GetProfileData({ userId }).then((res) => {
+				const usrName = res.data.username;
+				const usrPword = "••••••••••"; //{usrPword}
+				const usrEmail = res.data.email;
+				const usrBio = res.data.bioText;
+				const usrFrnds = res.data.friendsList;
+				setUserBio(usrBio);
+				setUserEmail(usrEmail);
+				setUserName(usrName);
+				setUserFriendsList(usrFrnds);
+			});
 		}
-	}
+	}, []);
 
 	return (
 		<Container className="profile-container">
@@ -44,51 +49,28 @@ export default function Profile(props) {
 			</Row>
 			<Row className="profile-page">
 				{/* pic and bio column */}
-				<Col sm={7}>
+				<Col lg={8}>
 					<Card className="bio-card">
+						<div className="profile-pic">
+							<img src={profilePic} className="profile-pic" />
+						</div>
+
+						<Row className="profile-bio">
+							<div className="label bio">
+								<h4>About Me:</h4>
+							</div>
+							<div className="profile-input">{userBio}</div>
+						</Row>
+
+						{/* user info column */}
 						<Row>
-							<Col sm={7}>
-								<div className="col-bio">
-									<div className="profile-pic">
-										<img
-											src={profilePic}
-											className="profile-pic"
-										/>
-										<EditButton
-											disabled
-											className="edit-button"
-										/>
-									</div>
+							<div className="label">
+								<h4>Name</h4>
+							</div>
 
-									<Row className="profile-bio">
-										<div className="label bio">
-											About Me:
-										</div>
-										<div className="edit-button-text">
-											{usrBio}
-											<EditButton
-												disabled
-												className="edit-button"
-											/>
-										</div>
-									</Row>
-								</div>
-							</Col>
-
-							{/* user info column */}
-							<Col sm={5}>
-								<div className="col-profile-info">
-									<Row className="profile-name">
-										<div className="label">Name</div>
-										<div className="edit-button-text">
-											{usrName}
-											<EditButton
-												disabled
-												className="edit-button"
-											/>
-										</div>
-									</Row>
-									<Row className="profile-password">
+							<div className="profile-input">{userName}</div>
+						</Row>
+						{/* <Row className="profile-password">
 										<div className="label password">
 											Password:
 										</div>
@@ -106,88 +88,59 @@ export default function Profile(props) {
 											/>{" "}
 											Show Password
 										</div>
-									</Row>
+									</Row> */}
 
-									<Row className="profile-email">
-										<div className="label">Email:</div>
-										<div className="edit-button-text">
-											{usrEmail}
-											<EditButton className="edit-button" />
-										</div>
-									</Row>
-								</div>
-							</Col>
+						<Row className="profile-email">
+							<div className="label">
+								<h4>Email:</h4>
+							</div>
+							<div className="profile-input">{userEmail}</div>
 						</Row>
+						<div className="edit-button">
+							<Button
+								variant="outline-primary"
+								onClick={handleShow}
+							>
+								Edit Profile
+							</Button>
+							<Modal show={showModal} onHide={handleClose}>
+								<Modal.Header closeButton>
+									<Modal.Title>Edit Profile</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									Edit Profile Coming Soon!
+								</Modal.Body>
+								<Modal.Footer>
+									<Button
+										variant="secondary"
+										onClick={handleClose}
+									>
+										Close
+									</Button>
+									<Button
+										variant="primary"
+										onClick={handleClose}
+										disabled
+									>
+										Save Changes
+									</Button>
+								</Modal.Footer>
+							</Modal>
+						</div>
 					</Card>
 				</Col>
-				<Col sm={5}>
+				<Col lg={4}>
 					<div className="col-review-cards">
-						<Card className="review-card">
-							<Card.Img
-								variant="top"
-								src={reviewOne}
-								style={{ size: "sm" }}
-							/>
-							<Card.Body>
-								<Card.Title>{stars}Iron Man</Card.Title>
-								<Card.Text>
-									Some quick example text to build on the card
-									title and make up the bulk of the card's
-									content.
-								</Card.Text>
-								<Button disabled variant="primary">
-									Full Review
-								</Button>
-							</Card.Body>
-						</Card>
-						<Card className="review-card">
-							<Card.Img
-								variant="top"
-								src={reviewTwo}
-								style={{ size: "sm" }}
-							/>
-							<Card.Body>
-								<Card.Title>Thor: Ragnarok</Card.Title>
-								<Card.Text>
-									Some quick example text to build on the card
-									title and make up the bulk of the card's
-									content.
-								</Card.Text>
-								<Button variant="primary">Full Review</Button>
-							</Card.Body>
-						</Card>
-						<Card className="review-card">
-							<Card.Img
-								variant="top"
-								src={reviewThree}
-								style={{ size: "sm" }}
-							/>
-							<Card.Body>
-								<Card.Title>Moana</Card.Title>
-								<Card.Text>
-									Some quick example text to build on the card
-									title and make up the bulk of the card's
-									content.
-								</Card.Text>
-								<Button variant="primary">Full Review</Button>
-							</Card.Body>
-						</Card>
-						<Card className="review-card">
-							<Card.Img
-								variant="top"
-								src={reviewFour}
-								style={{ size: "sm" }}
-							/>
-							<Card.Body>
-								<Card.Title>Bridget Jones Diary</Card.Title>
-								<Card.Text>
-									Some quick example text to build on the card
-									title and make up the bulk of the card's
-									content.
-								</Card.Text>
-								<Button variant="primary">Full Review</Button>
-							</Card.Body>
-						</Card>
+						<h4>My Reviews</h4>
+						<div className="review-list">
+							{props.reviewData ? (
+								<ReviewSpot />
+							) : (
+								<a href="/review">
+									<h5>Write your first review</h5>
+								</a>
+							)}
+						</div>
 					</div>
 				</Col>
 			</Row>

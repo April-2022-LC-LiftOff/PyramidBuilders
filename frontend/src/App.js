@@ -6,8 +6,7 @@ import Topbar from "./components/Topbar/Topbar";
 import Home from "./components/contentPages/Home";
 import Profile from "./components/contentPages/Profile";
 
-import CreateReview from './components/Reviews/CreateReview';
-
+import CreateReview from "./components/Reviews/CreateReview";
 
 import Login from "./components/contentPages/Login";
 import SignupForm from "./components/contentPages/SignupForm";
@@ -33,7 +32,7 @@ class App extends Component {
 		axios.get("http://localhost:8080/api/user/user", auth).then((user) => {
 			this.setState({
 				user: user.data,
-				auth: auth
+				auth: auth,
 			});
 		});
 	}
@@ -44,7 +43,7 @@ class App extends Component {
 				<Router>
 					<Topbar user={this.state.user} />
 					<div className="app-container">
-						<Sidebar user={this.state.user}/>
+						<Sidebar user={this.state.user} />
 						<div className="page-container">
 							<Switch>
 								<Route
@@ -79,9 +78,7 @@ class App extends Component {
 										<Welcome user={this.state.user} />
 									)}
 								/>
-								<Route
-									path="/film"
-									exact component={Viewer}/>
+								<Route path="/film" exact component={Viewer} />
 							</Switch>
 						</div>
 					</div>
