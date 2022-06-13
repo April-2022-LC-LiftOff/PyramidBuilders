@@ -1,6 +1,5 @@
 package org.launchcode.backend.controllers;
 
-import org.launchcode.backend.model.Ratings;
 import org.launchcode.backend.model.Review;
 import org.launchcode.backend.model.ReviewForm;
 import org.launchcode.backend.services.ReviewService;
