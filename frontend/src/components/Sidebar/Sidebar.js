@@ -30,16 +30,7 @@ function Sidebar(props) {
                 </Link></span>
               </div>
             </li>
-            <li className="sidebar_li">
-              <div className="sidebar_li">
-                <span className="icon">
-                  <FaIcons.FaComment />
-                </span>
-                <span className="title"><Link to="/review">
-                  Write a Review
-                </Link></span>
-              </div>
-            </li>
+            
           </ul>
         </div>
       )
@@ -55,16 +46,6 @@ function Sidebar(props) {
               </span>
               <span className="title"><Link to="/">
                 Home
-              </Link></span>
-            </div>
-          </li>
-          <li className="sidebar_li">
-            <div className="sidebar_li">
-              <span className="icon">
-                <FaIcons.FaComment />
-              </span>
-              <span className="title"><Link to="/login">
-                Write a Review
               </Link></span>
             </div>
           </li>
