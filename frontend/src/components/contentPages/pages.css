@@ -6,6 +6,7 @@
 
 .row {
 	padding: 20px 0;
+	width: 100%;
 }
 
 .top-bar-login {
@@ -18,10 +19,13 @@
 	flex-grow: 1;
 }
 
-.profile-container {
-	/* flex-grow: 1; */
+.profile-container,
+.container {
+	display: flex;
 	padding: 0 20px;
 	justify-content: left !important;
+	flex-wrap: nowrap !important;
+	flex-direction: column !important;
 }
 
 .bar {
@@ -48,8 +52,8 @@
 
 .profile-pic {
 	text-align: center;
-	min-width: 100px;
-	min-height: 100px;
+	max-width: 100px;
+	max-height: 100px;
 }
 
 .profile-page {
@@ -79,7 +83,7 @@
 .card-img,
 .card-img-top {
 	margin-left: 10px;
-	width:150px;
+	width: 150px;
 }
 
 .review-card {
@@ -89,11 +93,18 @@
 	padding: 10px;
 }
 
-.bio-card {
-	flex-direction: row;
+.bio-card,
+.card {
+	display: flex;
+	/* flex-direction: row; */
 	height: auto !important;
 	background-color: white !important;
-	padding: 10px;
+	padding: 20px;
+	overflow: auto !important;
+	font-size: 20px;
+	max-width: 600px;
+	align-items: center;
+	text-align: center;
 }
 
 .page-title,
@@ -165,17 +176,17 @@ h1 {
 	align-content: flex-start;
 }
 
-.happy{
-	font-family: 'metropolis1920regular';
+.happy {
+	font-family: "metropolis1920regular";
 }
 
-.bingo{
-	font-family: 'metropolis1920regular';
+.bingo {
+	font-family: "metropolis1920regular";
 	font-size: 2rem;
-	color: rgba(0,163,210,1);
+	color: rgba(0, 163, 210, 1);
 }
-.searchInput{
-	font-family: 'Montserrat', sans-serif;
+.searchInput {
+	font-family: "Montserrat", sans-serif;
 }
 /* WRITE REVIEW PAGE */
 
