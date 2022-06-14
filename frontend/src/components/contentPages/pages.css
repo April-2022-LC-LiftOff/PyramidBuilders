@@ -19,14 +19,17 @@
 	flex-grow: 1;
 }
 
-.profile-container,
-.container {
+.profile-container {
 	display: flex;
 	padding: 0 20px;
 	justify-content: left !important;
 	flex-wrap: nowrap !important;
 	flex-direction: column !important;
 }
+
+.container{
+	padding: 0 20px;
+	justify-content: left !important;}
 
 .bar {
 	background-color: #432232;
@@ -78,10 +81,11 @@
 .col-review-cards {
 	overflow: auto;
 	max-height: 80vh;
+	color: #fff;
 }
 
-.card-img,
-.card-img-top {
+.bio-card-img,
+.bio-card-img-top {
 	margin-left: 10px;
 	width: 150px;
 }
@@ -94,17 +98,18 @@
 }
 
 .bio-card,
-.card {
+.bio-card {
 	display: flex;
 	/* flex-direction: row; */
 	height: auto !important;
-	background-color: white !important;
+	background-color: #4949498e !important;
 	padding: 20px;
 	overflow: auto !important;
 	font-size: 20px;
 	max-width: 600px;
 	align-items: center;
 	text-align: center;
+	color: #fff;
 }
 
 .page-title,
@@ -169,7 +174,7 @@ h1 {
 .container {
 	display: flex;
 	flex-direction: row;
-	height: 100px;
+	height: 150px;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
