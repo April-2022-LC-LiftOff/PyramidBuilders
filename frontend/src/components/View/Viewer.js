@@ -125,7 +125,8 @@ const Viewer = (props) => {
                             <h3>Plot Synopsis: {movieData.Plot}</h3>
                     </div> 
                     </div>
-                        <div className="Write">
+                       {()=>{if(props.user){
+                       return(<div className="Write">
                           <div className="Background">
                               <form className="blue-form">
                                   <div className="header">
@@ -172,7 +173,7 @@ const Viewer = (props) => {
                                   </div>
                               </form> 
                             </div>
-                        </div>
+                        </div>)}}}
                         <div className="Reviews">
                             <h1>Reviews</h1>
                             <div className="list">
