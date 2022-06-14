@@ -137,9 +137,9 @@ export default function Profile(props) {
 								{props.reviewData ? (
 									<ReviewSpot />
 								) : (
-									<a href="/review">
-										<h5>Write your first review</h5>
-									</a>
+									
+										<h5>User Review Coming Soon</h5>
+									
 								)}
 							</div>
 						</div>

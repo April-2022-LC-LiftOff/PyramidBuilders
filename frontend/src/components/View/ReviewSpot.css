@@ -11,7 +11,7 @@
   .cardly {
 	width: 900px;
 	height: 250px;
-	background-color: #fff;
+	background-color: #4949498e;
 	box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
 	border-radius: 6px;
 	overflow: scroll;
@@ -97,6 +97,7 @@
   
   .text{
 	  width: 80%;
+	  color: #fff;
   }
   
   .handlebar{

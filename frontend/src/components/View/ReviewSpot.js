@@ -59,7 +59,7 @@ Be the first to Review
     const userProfileLink = "/profile/?userId=" + userData.userUid
     
     return (<div>
-    <div className="card">
+    <div className="cardly">
       <div className="additional">
         <div className="user-card">
           <div className="level center">
@@ -71,7 +71,7 @@ Be the first to Review
           <img width="110" height="110" className="profile-pic center" alt="profile" src="https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg"></img>
         </div>
         <div className="more-info">
-          <h1 className="RSh1"><a href={userProfileLink}>{userData.username}</a></h1>
+          <h1 className="RSh1">{userData.username}</h1>
           <div className="coords">
             <span>Interest #1</span>
             <span>Interest #2</span>
@@ -124,22 +124,8 @@ Be the first to Review
   {val.reviewText} 
   </p>
   </div>
-        <div className="handlebar">
-        <div className="columnly">
-          <div className="rowly">
-            <img className="newimg" src={addfollow} alt="alt"/> 
-          </div>
-          <div className="rowly">
-            <img className="newimg" src={heart} alt="alt"/> 
-          </div>
-          <div className="rowly"> 
-            <img className="newimg" src={users} alt="alt"/>
-          </div>
-          <div className="rowly">
-          <img className="newimg" src={star} alt="alt"/> 
-          </div>
-        </div>
-      </div>
+       
+      
       </div>
       </div>
   

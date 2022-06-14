@@ -45,10 +45,7 @@ function Home(props) {
 				<FeaturedList className="item" />{" "}
 			</div>
 
-			<div className="container">
-				{" "}
-				<FeaturedList className="item" />{" "}
-			</div>
+			
 		</div>
 	);
 }

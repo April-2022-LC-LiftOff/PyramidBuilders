@@ -4,7 +4,7 @@ import "../SearchFunctions/SearchMovies.css";
 
 const Movie = ({Title, Poster}) => (
     
-    <div className="grid" className="cards" className="album">
+    <div className="grid cards album">
 
     <Card className="card" style={{ width: '18rem' }} className="box">
         <Card.Img className="image" src={Poster}></Card.Img>
