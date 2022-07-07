@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.containerNew {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "Image Image Info"
+    "Write Write Write"
+    "Reviews Reviews Reviews"
+    "Reviews Reviews Reviews"; 
+
+  }
+.Title {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+h2{
+    margin-left: 70px;
+}
+.Titular{
+    margin-top: 0rem;
+    margin-bottom: 10rem;
+    padding: 20px;
+    width: 100%;
+    color: white;
+}
+.Background{
+    width: 750px;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: rgb(223,23,23);
+    border-radius: 1em;
+    box-shadow: 0 20px 40px rgba(21, 7, 24, 0.8);
+}
+.staar{
+    margin-left: 70px;
+    size: 200px;
+}
+
+.inputNew{
+    width: 77%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-left: 70px;
+    padding: 10px; 
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical
+}
+.review{
+    width: 95%;
+    padding: 10px; 
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.918);
+    color: white;
+
+}
+.textarea{
+    margin-left: auto;
+    margin-right: auto; 
+    width: 80%;
+}
+.header{
+    background: #8b060667;
+    height: 80px;
+    width: 750px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
+}
+h1{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+hr{
+    color:rgb(222,0,0);
+}
+.poster {
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.blue-form{
+    width: 100%;
+    border-radius: 15px 15px 15px 15px;
+    background-color: rgba(0, 121, 177, 0.726);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.Write { 
+    grid-area: Write;
+    height: fit-content;
+    margin-top: 40px;
+}
+.Image { grid-area: Image; 
+    text-align: center;
+    /* height: 480px; */
+
+}
+.Info { grid-area: Info;
+    padding: 10px;
+    border-left: 1px solid rgba(100,0,128,0.5242296747800683);
+    margin-right: 10px;
+}
+.Info-text{
+    color: white;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+.Info h3{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+}
+.Reviews { grid-area: Reviews; 
+    height: 200px;
+}
+.button_locale{
+    background-color: rgba(100,0,128,0.5242296747800683);
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow:2px rgba(100,0,128,0.5242296747800683);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:rgb(223,23,23);
+    font-family: 'Montserrat', sans-serif;
+
+}
+.button_locale:hover{
+    background: rgba(112, 4, 4, 0.582);
+
+}
+.list {
+    margin-left: 100px;
+}
+.speec{
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+}
+.speech{
+    font-size: 1.75rem;
+}
